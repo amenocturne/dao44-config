@@ -7,4 +7,7 @@ on:
 
 jobs:
   build:
-    uses: zmkfirmware/zmk/.github/workflows/build-user-config.yml@main
+    # Keep the reusable workflow aligned with the ZMK revision in config/west.yml.
+    # Current ZMK main enforces the Zephyr 4.1 board model, while Dao still uses
+    # the final compatible pre-4.1 revision.
+    uses: zmkfirmware/zmk/.github/workflows/build-user-config.yml@abb64ba316c29caddc49727ca2cac2f0ed5970c7
