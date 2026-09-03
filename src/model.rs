@@ -285,11 +285,11 @@ impl LayoutSpec {
             "Num P26 must return to Base"
         );
         ensure!(
-            matches!(base.keys[42], Action::NavEnter),
-            "P42 must own Nav entry"
+            matches!(base.keys[41], Action::NavEnter),
+            "P41 must own Nav entry"
         );
         ensure!(
-            matches!(num.keys[42], Action::NavEnter),
+            matches!(num.keys[41], Action::NavEnter),
             "Nav must remain reachable from Num"
         );
         ensure!(matches!(

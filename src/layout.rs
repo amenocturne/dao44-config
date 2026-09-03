@@ -120,8 +120,8 @@ fn base() -> Layer {
             key("LCTRL", "Ctrl", Mod),
             key("LALT", "Option", Mod),
             key("LGUI", "Cmd", Mod),
-            key("SPACE", "Space", Alpha),
             Action::NavEnter,
+            key("SPACE", "Space", Alpha),
             key("BSPC", "Backspace", Navigation),
         ],
     }
@@ -189,8 +189,8 @@ fn nav() -> Layer {
     keys[38] = key("LCTRL", "Ctrl", Mod);
     keys[39] = key("LALT", "Option", Mod);
     keys[40] = key("LGUI", "Cmd", Mod);
-    keys[41] = key("SPACE", "Space", Category::Alpha);
-    keys[42] = Action::Transparent;
+    keys[41] = Action::Transparent;
+    keys[42] = key("SPACE", "Space", Category::Alpha);
     keys[43] = Action::Transparent;
 
     Layer {
@@ -265,8 +265,8 @@ fn num() -> Layer {
     keys[38] = key("LCTRL", "Ctrl", Mod);
     keys[39] = key("LALT", "Option", Mod);
     keys[40] = key("LGUI", "Cmd", Mod);
-    keys[41] = key("SPACE", "Space", Alpha);
-    keys[42] = Action::NavEnter;
+    keys[41] = Action::NavEnter;
+    keys[42] = key("SPACE", "Space", Alpha);
     keys[43] = key("BSPC", "Backspace", Navigation);
 
     Layer {

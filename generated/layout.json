@@ -802,17 +802,17 @@
           "category": "modifier"
         },
         "P41": {
-          "primary": "Space",
-          "tap": "Space",
-          "category": "alpha"
-        },
-        "P42": {
           "primary": "Enter",
           "tap": "Return / Enter",
           "hold": "Momentary Nav / WM",
           "holdFace": "hold: Nav",
           "secondary": "Nav release is intended to return to Base",
           "category": "layer"
+        },
+        "P42": {
+          "primary": "Space",
+          "tap": "Space",
+          "category": "alpha"
         },
         "P43": {
           "primary": "Backspace",
@@ -1081,14 +1081,14 @@
           "category": "modifier"
         },
         "P41": {
-          "primary": "Space",
-          "tap": "Space",
-          "category": "alpha"
-        },
-        "P42": {
           "primary": "▽",
           "tap": "Transparent to Base",
           "category": "unassigned"
+        },
+        "P42": {
+          "primary": "Space",
+          "tap": "Space",
+          "category": "alpha"
         },
         "P43": {
           "primary": "▽",
@@ -1355,17 +1355,17 @@
           "category": "modifier"
         },
         "P41": {
-          "primary": "Space",
-          "tap": "Space",
-          "category": "alpha"
-        },
-        "P42": {
           "primary": "Enter",
           "tap": "Return / Enter",
           "hold": "Momentary Nav / WM",
           "holdFace": "hold: Nav",
           "secondary": "Nav release is intended to return to Base",
           "category": "layer"
+        },
+        "P42": {
+          "primary": "Space",
+          "tap": "Space",
+          "category": "alpha"
         },
         "P43": {
           "primary": "Backspace",
@@ -1476,7 +1476,7 @@
       "description": "The intended invariant is that releasing Nav disables every non-Base layer.",
       "steps": [
         {
-          "key": "P42",
+          "key": "P41",
           "label": "Hold Nav, then release"
         }
       ]

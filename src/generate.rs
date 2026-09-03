@@ -115,7 +115,7 @@ pub fn preview_json(spec: &LayoutSpec) -> Result<String> {
                 name: "Universal Base return",
                 description: "The intended invariant is that releasing Nav disables every non-Base layer.",
                 steps: vec![SequenceStep {
-                    key: "P42",
+                    key: "P41",
                     label: "Hold Nav, then release",
                 }],
             },

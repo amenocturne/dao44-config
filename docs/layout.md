@@ -8,7 +8,7 @@ This document preserves the decisions behind the executable draft. Physical IDs 
 - Russian keeps the ordinary 44-key punctuation/letter positions; no firmware Colemak layer may distort it.
 - The physical index positions `P18` and `P21` own mirrored Shift holds across layers.
 - Escape is rare but always present: tap `P00` for Escape, hold it for real Ctrl+Option+Command Hyper.
-- `P42` is always the Nav escape hatch. The intended invariant is that releasing Nav returns to Base even if Nav began from latched Num.
+- `P41` is always the Nav escape hatch. The intended invariant is that releasing Nav returns to Base even if Nav began from latched Num.
 - Empty positions stay empty until actual use supplies evidence.
 
 ## Base
@@ -19,7 +19,7 @@ The alpha block is untouched ANSI. Host legend switching in the preview changes 
 - `P21`: tap raw J (Colemak-DH N), hold right Shift.
 - `P26`: tap toggles Num/Symbol; hold activates it momentarily.
 - `/` and `\` remain on the bottom-right positions; Shift produces `?` and `|`.
-- Thumbs, left to right: Ctrl, Option, Cmd | Space, Enter/Nav, Backspace.
+- Thumbs, left to right: Ctrl, Option, Cmd | Enter/Nav, Space, Backspace. Space owns the natural middle thumb position because it is substantially more frequent than Enter.
 
 This keeps Ctrl-W, Ctrl-B, Ctrl-C, Ctrl-Space, Option-Space, Space leader, Cmd/Option-Backspace, and combined Cmd/Option+Shift editing available without a second translation scheme.
 

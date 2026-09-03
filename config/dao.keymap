@@ -207,7 +207,7 @@ bindings = <&mo>, <&tog>;
                 &mt LC(LA(LGUI)) ESC          &kp GRAVE                     &kp Q                         &kp W                         &kp E                         &kp R                         &kp T                         &kp Y                         &kp U                         &kp I                         &kp O                         &kp P                         &kp LBKT                      &kp RBKT
                 &kp TAB                       &kp A                         &kp S                         &kp D                         &mt LSHFT F                   &kp G                         &kp H                         &mt RSHFT J                   &kp K                         &kp L                         &kp SEMI                      &kp SQT
                 &num_mode NUM NUM             &kp Z                         &kp X                         &kp C                         &kp V                         &kp B                         &kp N                         &kp M                         &kp COMMA                     &kp DOT                       &kp FSLH                      &kp BSLH
-                &kp LCTRL                     &kp LALT                      &kp LGUI                      &kp SPACE                     &lt NAV RET                   &kp BSPC
+                &kp LCTRL                     &kp LALT                      &kp LGUI                      &lt NAV RET                   &kp SPACE                     &kp BSPC
             >;
         };
 
@@ -217,7 +217,7 @@ bindings = <&mo>, <&tog>;
                 &mt LC(LA(LGUI)) ESC          &none                         &none                         &kp UP                        &none                         &none                         &none                         &kp LC(LA(LG(N6)))            &kp LC(LA(LG(N7)))            &kp LC(LA(LG(N8)))            &kp LC(LA(LG(N9)))            &kp LC(LA(LG(N0)))            &none                         &none
                 &kp TAB                       &kp LEFT                      &kp DOWN                      &kp RIGHT                     &kp LSHFT                     &none                         &kp LC(LA(LG(N1)))            &mt RSHFT LC(LA(LG(N2)))      &mt RGUI LC(LA(LG(N3)))       &mt RALT LC(LA(LG(N4)))       &mt RCTRL LC(LA(LG(N5)))      &none
                 &kp F1                        &kp F2                        &kp F3                        &kp F4                        &kp F5                        &kp F6                        &kp F7                        &kp F8                        &kp F9                        &kp F10                       &kp F11                       &kp F12
-                &kp LCTRL                     &kp LALT                      &kp LGUI                      &kp SPACE                     &trans                        &trans
+                &kp LCTRL                     &kp LALT                      &kp LGUI                      &trans                        &kp SPACE                     &trans
             >;
         };
 
@@ -227,7 +227,7 @@ bindings = <&mo>, <&tog>;
                 &mt LC(LA(LGUI)) ESC          &none                         &none                         &none                         &none                         &none                         &none                         &none                         &none                         &none                         &none                         &none                         &kp MINUS                     &kp EQUAL
                 &kp TAB                       &kp N1                        &kp N2                        &kp N3                        &mt LSHFT N4                  &kp N5                        &kp N6                        &mt RSHFT N7                  &kp N8                        &kp N9                        &kp N0                        &none
                 &to BASE                      &guard_clear_bt_ctl           &guard_clear_all_ctl          &guard_reset_ctl              &guard_bootloader_ctl         &none                         &guard_bt_1_ctl               &guard_bt_2_ctl               &guard_bt_3_ctl               &guard_bt_4_ctl               &guard_bt_5_ctl               &none
-                &kp LCTRL                     &kp LALT                      &kp LGUI                      &kp SPACE                     &lt NAV RET                   &kp BSPC
+                &kp LCTRL                     &kp LALT                      &kp LGUI                      &lt NAV RET                   &kp SPACE                     &kp BSPC
             >;
         };
     };
