@@ -32,11 +32,11 @@ The recipes enter the pinned Nix environment themselves; only Nix and `just` nee
 To prepare the larger ZMK checkout once and build both halves locally:
 
 ```sh
-just firmware-setup
-just firmware
+just firmware setup
+just firmware build all
 ```
 
-The first setup downloads ZMK, Zephyr modules, and Python build dependencies into ignored project-local directories. Later builds reuse `build/left` and `build/right`.
+The first setup downloads ZMK, Zephyr modules, and Python build dependencies into ignored project-local directories. Later builds reuse `build/left` and `build/right`. Bare `just firmware` shows its available setup and build operations.
 
 On macOS, double-tap reset and explicitly flash each physical half once:
 

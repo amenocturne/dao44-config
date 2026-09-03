@@ -49,7 +49,7 @@ fn check_file(path: &Path, expected: &str) -> Result<()> {
     let actual = std::fs::read_to_string(path)
         .with_context(|| format!("generated file is missing: {}", path.display()))?;
     if actual != expected {
-        bail!("{} is stale; run `just generate`", path.display());
+        bail!("{} is stale; run `just dev generate`", path.display());
     }
     Ok(())
 }

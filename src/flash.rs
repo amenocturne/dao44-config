@@ -240,9 +240,10 @@ fn plan_flashes(
         let firmware = root.join("build").join(half.label()).join("zephyr/zmk.uf2");
         ensure!(
             firmware.is_file(),
-            "{} firmware is missing at {}; run `just firmware` first",
+            "{} firmware is missing at {}; run `just firmware build {}` first",
             half.label(),
-            firmware.display()
+            firmware.display(),
+            half.label()
         );
         plans.push(FlashPlan {
             half,

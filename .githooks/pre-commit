@@ -1,2 +1,2 @@
 #!/bin/sh
-exec just hook-pre-commit
+exec just dev check
