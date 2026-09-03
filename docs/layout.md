@@ -27,6 +27,7 @@ This keeps Ctrl-W, Ctrl-B, Ctrl-C, Ctrl-Space, Option-Space, Space leader, Cmd/O
 
 Hold Enter/Nav.
 
+- A tap emits Enter; a hold activates Nav. Pressing another key while it is held resolves to Nav immediately, with no tap-then-hold Enter-repeat exception.
 - Left arrows reuse WASD geometry: W=up and A/S/D=left/down/right.
 - The left index home position is Shift.
 - Right top row is AeroSpace WS6–WS10.

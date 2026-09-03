@@ -139,7 +139,7 @@ pub fn zmk_keymap(spec: &LayoutSpec) -> Result<String> {
 #define BASE 0\n\
 #define NAV 1\n\
 #define NUM 2\n\n\
-&lt { quick-tap-ms = <175>; tapping-term-ms = <220>; };\n\
+&lt { flavor = \"hold-preferred\"; tapping-term-ms = <220>; };\n\
 &mt { quick-tap-ms = <175>; tapping-term-ms = <220>; };\n\n\
 / {\n\
     chosen {\n\
@@ -265,5 +265,13 @@ mod tests {
             assert!(keymap.contains(modifier));
         }
         assert!(keymap.contains("bindings = <&none>, <&bt BT_CLR_ALL>"));
+    }
+
+    #[test]
+    fn nav_is_strictly_enter_on_tap_and_layer_on_hold() {
+        let keymap = zmk_keymap(&dao44()).unwrap();
+        assert!(keymap.contains("&lt { flavor = \"hold-preferred\"; tapping-term-ms = <220>; };"));
+        assert!(!keymap.contains("&lt { quick-tap-ms"));
+        assert!(keymap.contains("&lt NAV RET"));
     }
 }

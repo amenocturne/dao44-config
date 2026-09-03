@@ -8,7 +8,7 @@
 #define NAV 1
 #define NUM 2
 
-&lt { quick-tap-ms = <175>; tapping-term-ms = <220>; };
+&lt { flavor = "hold-preferred"; tapping-term-ms = <220>; };
 &mt { quick-tap-ms = <175>; tapping-term-ms = <220>; };
 
 / {
