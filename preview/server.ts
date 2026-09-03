@@ -2,7 +2,6 @@ import { watch } from "node:fs";
 import { extname, join } from "node:path";
 
 const root = join(import.meta.dir, "..");
-const port = Number(Bun.argv[2] ?? 4173);
 const clients = new Set<ReadableStreamDefaultController<Uint8Array>>();
 const encoder = new TextEncoder();
 let generationRunning = false;
@@ -84,10 +83,10 @@ const contentTypes: Record<string, string> = {
 
 await generate();
 
-Bun.serve({
+const server = Bun.serve({
   hostname: "127.0.0.1",
   idleTimeout: 30,
-  port,
+  port: 0,
   async fetch(request) {
     const { pathname } = new URL(request.url);
     if (pathname === "/events") {
@@ -124,4 +123,4 @@ Bun.serve({
   },
 });
 
-console.log(`Dao44 preview: http://127.0.0.1:${port}`);
+console.log(`Dao44 preview: ${server.url}`);

@@ -23,12 +23,11 @@ It deliberately does not bake Colemak-DH into firmware. The keyboard emits ANSI 
 ## Quick start
 
 ```sh
-nix develop
 just setup
 just run
 ```
 
-Open <http://127.0.0.1:4173>, then edit `src/layout.rs`. The page reloads after a successful generation; compile failures are printed in the terminal and leave the last valid preview visible.
+The recipes enter the pinned Nix environment themselves; only Nix and `just` need to be available globally. Open the URL printed by `just run`, then edit `src/layout.rs`. The server asks the operating system for an available localhost port, so multiple previews can run without colliding. The page reloads after a successful generation; compile failures are printed in the terminal and leave the last valid preview visible.
 
 To prepare the larger ZMK checkout once and build both halves locally:
 
