@@ -140,7 +140,7 @@ pub fn zmk_keymap(spec: &LayoutSpec) -> Result<String> {
 #define NAV 1\n\
 #define NUM 2\n\n\
 &lt { flavor = \"hold-preferred\"; tapping-term-ms = <220>; };\n\
-&mt { quick-tap-ms = <175>; tapping-term-ms = <220>; };\n\n\
+&mt { tapping-term-ms = <220>; };\n\n\
 / {\n\
     chosen {\n\
         zmk,physical-layout = &dao_full_layout;\n\
@@ -151,7 +151,6 @@ pub fn zmk_keymap(spec: &LayoutSpec) -> Result<String> {
             #binding-cells = <2>;\n\
             flavor = \"tap-preferred\";\n\
             tapping-term-ms = <220>;\n\
-            quick-tap-ms = <175>;\n\
             bindings = <&mo>, <&tog>;\n\
         };\n",
     );
@@ -271,7 +270,12 @@ mod tests {
     fn nav_is_strictly_enter_on_tap_and_layer_on_hold() {
         let keymap = zmk_keymap(&dao44()).unwrap();
         assert!(keymap.contains("&lt { flavor = \"hold-preferred\"; tapping-term-ms = <220>; };"));
-        assert!(!keymap.contains("&lt { quick-tap-ms"));
         assert!(keymap.contains("&lt NAV RET"));
+    }
+
+    #[test]
+    fn dual_role_keys_have_no_quick_tap_exception() {
+        let keymap = zmk_keymap(&dao44()).unwrap();
+        assert!(!keymap.contains("quick-tap-ms"));
     }
 }

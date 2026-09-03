@@ -9,7 +9,7 @@
 #define NUM 2
 
 &lt { flavor = "hold-preferred"; tapping-term-ms = <220>; };
-&mt { quick-tap-ms = <175>; tapping-term-ms = <220>; };
+&mt { tapping-term-ms = <220>; };
 
 / {
 chosen {
@@ -22,7 +22,6 @@ compatible = "zmk,behavior-hold-tap";
 #binding-cells = <2>;
 flavor = "tap-preferred";
 tapping-term-ms = <220>;
-quick-tap-ms = <175>;
 bindings = <&mo>, <&tog>;
 };
 
