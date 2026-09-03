@@ -98,37 +98,17 @@ _firmware: _generate
     tmp/zmk-venv/bin/west build -s zmk/app -d build/left -b dao_left -- -DZMK_CONFIG={{justfile_directory()}}/config
     tmp/zmk-venv/bin/west build -s zmk/app -d build/right -b dao_right -- -DZMK_CONFIG={{justfile_directory()}}/config
 
-# Register the only mounted UF2 bootloader as the left half in local .env
-register-left:
-    just _in-dev-shell _register-left
+[private]
+_firmware-half half: _generate
+    @half={{quote(half)}}; if [[ "$half" != "left" && "$half" != "right" ]]; then echo "unknown keyboard half: $half" >&2; exit 1; fi; test -d .west || { echo 'Run `just firmware-setup` once first.' >&2; exit 1; }; tmp/zmk-venv/bin/west build -s zmk/app -d "build/$half" -b "dao_$half" -- -DZMK_CONFIG={{justfile_directory()}}/config
+
+# Flash one half, all connected halves, or inspect the mapping; omit TARGET for help
+flash target="":
+    @if [[ -n "${IN_NIX_SHELL:-}" ]]; then just _flash {{quote(target)}}; else nix develop --command just _flash {{quote(target)}}; fi
 
 [private]
-_register-left:
-    cargo run --quiet -- register-left
-
-# Register the only mounted UF2 bootloader as the right half in local .env
-register-right:
-    just _in-dev-shell _register-right
-
-[private]
-_register-right:
-    cargo run --quiet -- register-right
-
-# Show how mounted bootloaders map to firmware without writing anything
-flash-check:
-    just _in-dev-shell _flash-check
-
-[private]
-_flash-check:
-    cargo run --quiet -- flash-check
-
-# Build and safely flash every registered Dao bootloader currently mounted
-flash:
-    just _in-dev-shell _flash
-
-[private]
-_flash: _firmware
-    cargo run --quiet -- flash
+_flash target:
+    @target={{quote(target)}}; if [[ -z "$target" || "$target" == "help" || "$target" == "--help" ]]; then cargo run --quiet -- flash; elif [[ "$target" == "check" ]]; then cargo run --quiet -- flash check; elif [[ "$target" == "left" || "$target" == "right" ]]; then just _firmware-half "$target" && cargo run --quiet -- flash "$target"; elif [[ "$target" == "all" ]]; then just _firmware && cargo run --quiet -- flash all; else cargo run --quiet -- flash "$target"; fi
 
 # Configure Git to use the repository's versioned hooks
 hooks-install:

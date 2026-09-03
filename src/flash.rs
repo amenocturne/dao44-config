@@ -11,6 +11,16 @@ const LEFT_SERIAL_KEY: &str = "DAO_LEFT_BOOTLOADER_SERIAL";
 const RIGHT_SERIAL_KEY: &str = "DAO_RIGHT_BOOTLOADER_SERIAL";
 const BOOT_VOLUME_PREFIX: &str = "NRF52BOOT";
 
+pub const HELP: &str = "Flash Dao44 firmware
+
+Usage:
+  just flash left    Build and flash the left half
+  just flash right   Build and flash the right half
+  just flash all     Build and flash every connected, known half
+  just flash check   Show connected halves without writing
+
+The first explicit left/right flash remembers that half's USB serial in local .env.";
+
 #[derive(Clone, Copy, Debug, Eq, Hash, PartialEq)]
 pub enum Half {
     Left,
@@ -94,43 +104,40 @@ struct FlashPlan {
     firmware: PathBuf,
 }
 
-pub fn register(root: &Path, half: Half) -> Result<()> {
+pub fn print_help() {
+    println!("{HELP}");
+}
+
+pub fn flash_half(root: &Path, half: Half) -> Result<()> {
     let volumes = discover_bootloaders()?;
     ensure!(
-        volumes.len() == 1,
-        "expected exactly one mounted {BOOT_VOLUME_PREFIX} bootloader, found {}; connect only the {half} half while registering",
-        volumes.len(),
-        half = half.label()
+        !volumes.is_empty(),
+        "no {BOOT_VOLUME_PREFIX} bootloader is mounted; double-tap reset on the {} half",
+        half.label()
     );
-    let volume = &volumes[0];
     let env_path = root.join(".env");
     let existing = fs::read_to_string(&env_path).unwrap_or_default();
     let config = FlashConfig::from_env(&existing)?;
-    if let Some(other_serial) = config.serial_for_half(other_half(half)) {
-        ensure!(
-            other_serial != volume.serial,
-            "USB serial {} is already registered as the {} half",
-            volume.serial,
-            other_half(half).label()
-        );
-    }
-    let updated = upsert_env(&existing, half.env_key(), &volume.serial)?;
-    fs::write(&env_path, updated)
-        .with_context(|| format!("failed to update {}", env_path.display()))?;
-    println!(
-        "registered {} half ({}) from {}",
-        half.label(),
-        volume.serial,
-        volume.mount.display()
-    );
-    Ok(())
+    let volume = select_half_volume(&config, half, volumes)?;
+
+    let config = if config.serial_for_half(half).is_none() {
+        let updated = upsert_env(&existing, half.env_key(), &volume.serial)?;
+        fs::write(&env_path, &updated)
+            .with_context(|| format!("failed to update {}", env_path.display()))?;
+        println!("remembered {} half ({})", half.label(), volume.serial);
+        FlashConfig::from_env(&updated)?
+    } else {
+        config
+    };
+
+    execute_flashes(plan_flashes(root, &config, vec![volume])?, false)
 }
 
-pub fn flash(root: &Path, dry_run: bool) -> Result<()> {
+pub fn flash_registered(root: &Path, dry_run: bool) -> Result<()> {
     let env_path = root.join(".env");
     let contents = fs::read_to_string(&env_path).with_context(|| {
         format!(
-            "{} is missing; run `just register-left` and `just register-right` first",
+            "{} is missing; run `just flash left` and `just flash right` once first",
             env_path.display()
         )
     })?;
@@ -140,8 +147,49 @@ pub fn flash(root: &Path, dry_run: bool) -> Result<()> {
         !volumes.is_empty(),
         "no {BOOT_VOLUME_PREFIX} bootloader is mounted; double-tap reset on one or both halves"
     );
-    let plans = plan_flashes(root, &config, volumes)?;
+    execute_flashes(plan_flashes(root, &config, volumes)?, dry_run)
+}
 
+fn select_half_volume(
+    config: &FlashConfig,
+    half: Half,
+    volumes: Vec<BootloaderVolume>,
+) -> Result<BootloaderVolume> {
+    if let Some(serial) = config.serial_for_half(half) {
+        let mut matching = volumes.into_iter().filter(|volume| volume.serial == serial);
+        let volume = matching.next().with_context(|| {
+            format!(
+                "the connected bootloaders do not include the registered {} half ({serial})",
+                half.label()
+            )
+        })?;
+        ensure!(
+            matching.next().is_none(),
+            "more than one mounted volume has the {} half's USB serial",
+            half.label()
+        );
+        return Ok(volume);
+    }
+
+    let other_serial = config.serial_for_half(other_half(half));
+    let mut candidates = volumes
+        .into_iter()
+        .filter(|volume| Some(volume.serial.as_str()) != other_serial);
+    let volume = candidates.next().with_context(|| {
+        format!(
+            "no unregistered bootloader is available to remember as the {} half",
+            half.label()
+        )
+    })?;
+    ensure!(
+        candidates.next().is_none(),
+        "more than one unregistered bootloader is mounted; connect only the {} half for its first flash",
+        half.label()
+    );
+    Ok(volume)
+}
+
+fn execute_flashes(plans: Vec<FlashPlan>, dry_run: bool) -> Result<()> {
     for plan in &plans {
         println!(
             "{}: {} -> {} ({})",
@@ -179,7 +227,7 @@ fn plan_flashes(
     for volume in volumes {
         let half = config.half_for_serial(&volume.serial).with_context(|| {
             format!(
-                "bootloader {} at {} is not registered; disconnect the other half and run `just register-left` or `just register-right`",
+                "bootloader {} at {} is not known; run `just flash left` or `just flash right` with that half connected",
                 volume.serial,
                 volume.mount.display()
             )
@@ -471,5 +519,64 @@ mod tests {
             "DAO_LEFT_BOOTLOADER_SERIAL=SAME\nDAO_RIGHT_BOOTLOADER_SERIAL=SAME\n",
         );
         assert!(result.is_err());
+    }
+
+    #[test]
+    fn explicit_half_selects_its_registered_volume() {
+        let config = FlashConfig {
+            left_serial: Some("LEFT123".into()),
+            right_serial: Some("RIGHT456".into()),
+        };
+        let selected = select_half_volume(
+            &config,
+            Half::Right,
+            vec![
+                volume("NRF52BOOT", "LEFT123"),
+                volume("NRF52BOOT 1", "RIGHT456"),
+            ],
+        )
+        .unwrap();
+
+        assert_eq!(selected.serial, "RIGHT456");
+    }
+
+    #[test]
+    fn first_explicit_half_ignores_the_known_other_half() {
+        let config = FlashConfig {
+            left_serial: Some("LEFT123".into()),
+            right_serial: None,
+        };
+        let selected = select_half_volume(
+            &config,
+            Half::Right,
+            vec![
+                volume("NRF52BOOT", "LEFT123"),
+                volume("NRF52BOOT 1", "RIGHT456"),
+            ],
+        )
+        .unwrap();
+
+        assert_eq!(selected.serial, "RIGHT456");
+    }
+
+    #[test]
+    fn first_explicit_half_rejects_ambiguous_bootloaders() {
+        let result = select_half_volume(
+            &FlashConfig::default(),
+            Half::Left,
+            vec![
+                volume("NRF52BOOT", "FIRST"),
+                volume("NRF52BOOT 1", "SECOND"),
+            ],
+        );
+
+        assert!(result.is_err());
+    }
+
+    fn volume(name: &str, serial: &str) -> BootloaderVolume {
+        BootloaderVolume {
+            mount: PathBuf::from("/Volumes").join(name),
+            serial: serial.into(),
+        }
     }
 }

@@ -5,7 +5,7 @@ mod model;
 
 use std::path::{Path, PathBuf};
 
-use anyhow::{Context, Result, bail};
+use anyhow::{Context, Result, bail, ensure};
 
 fn main() -> Result<()> {
     let root = PathBuf::from(env!("CARGO_MANIFEST_DIR"));
@@ -19,13 +19,22 @@ fn main() -> Result<()> {
             spec.validate()?;
             check_generated(&root, &spec)
         }
-        "register-left" => flash::register(&root, flash::Half::Left),
-        "register-right" => flash::register(&root, flash::Half::Right),
-        "flash-check" => flash::flash(&root, true),
-        "flash" => flash::flash(&root, false),
-        other => bail!(
-            "unknown command {other:?}; expected generate, check, register-left, register-right, flash-check, or flash"
-        ),
+        "flash" => {
+            let target = args.next();
+            ensure!(args.next().is_none(), "flash accepts exactly one target");
+            match target.as_deref() {
+                None | Some("help" | "--help") => {
+                    flash::print_help();
+                    Ok(())
+                }
+                Some("left") => flash::flash_half(&root, flash::Half::Left),
+                Some("right") => flash::flash_half(&root, flash::Half::Right),
+                Some("all") => flash::flash_registered(&root, false),
+                Some("check") => flash::flash_registered(&root, true),
+                Some(other) => bail!("unknown flash target {other:?}\n\n{}", flash::HELP),
+            }
+        }
+        other => bail!("unknown command {other:?}; expected generate, check, or flash"),
     }
 }
 

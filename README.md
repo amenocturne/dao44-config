@@ -38,14 +38,14 @@ just firmware
 
 The first setup downloads ZMK, Zephyr modules, and Python build dependencies into ignored project-local directories. Later builds reuse `build/left` and `build/right`.
 
-On macOS, register each physical half once while it is the only `NRF52BOOT` volume mounted:
+On macOS, double-tap reset and explicitly flash each physical half once:
 
 ```sh
-just register-left
-just register-right
+just flash left
+just flash right
 ```
 
-The commands store the bootloaders' unique USB serials in an ignored local `.env`; the identical volume labels do not need to change. Afterwards, double-tap reset on either or both halves and run `just flash`. It builds both images, verifies every mounted volume against the saved side before writing anything, then flashes all recognized halves. `just flash-check` performs the same discovery without writing.
+The first explicit flash stores that bootloader's unique USB serial in an ignored local `.env`; the identical volume labels do not need to change. Later, `just flash left` or `just flash right` targets one half even when both are mounted, while `just flash all` builds and flashes every connected known half. `just flash check` performs discovery without writing. Bare `just flash` shows the compact command help.
 
 The manifest pins the final ZMK revision before its Zephyr 4.1 migration. The upstream Dao module still uses Zephyr's 3.x board model, so upgrading ZMK independently currently breaks board discovery; treat the two revisions as one compatibility unit.
 
