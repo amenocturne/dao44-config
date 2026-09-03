@@ -1,0 +1,13 @@
+/target
+/tmp
+/zmk
+/zephyr
+/modules
+/optional
+/ergonautkb-zmk-module
+/.west
+/build
+node_modules
+result
+.DS_Store
+.playwright-cli

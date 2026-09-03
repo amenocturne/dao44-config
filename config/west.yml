@@ -1,0 +1,18 @@
+manifest:
+  remotes:
+    - name: zmkfirmware
+      url-base: https://github.com/zmkfirmware
+    - name: ergonautkb
+      url-base: https://github.com/ergonautkb
+  projects:
+    - name: zmk
+      remote: zmkfirmware
+      # Last ZMK revision before the Zephyr 4.1 hardware-model migration.
+      # The upstream Dao module still uses the Zephyr 3.x board definition.
+      revision: abb64ba316c29caddc49727ca2cac2f0ed5970c7
+      import: app/west.yml
+    - name: ergonautkb-zmk-module
+      remote: ergonautkb
+      revision: 0baf6fb036595f4c16bde895b8804123e6b4cf0d
+  self:
+    path: config

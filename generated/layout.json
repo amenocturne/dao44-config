@@ -1,0 +1,1492 @@
+{
+  "title": "Dao44 · transition-first layout",
+  "revision": "v1 · executable draft",
+  "geometry": [
+    {
+      "id": "P00",
+      "index": 0,
+      "w": 100,
+      "h": 100,
+      "x": 0,
+      "y": 150,
+      "rot": 0.0,
+      "rx": 0,
+      "ry": 0,
+      "hand": "left",
+      "region": "top"
+    },
+    {
+      "id": "P01",
+      "index": 1,
+      "w": 100,
+      "h": 100,
+      "x": 100,
+      "y": 75,
+      "rot": 0.0,
+      "rx": 0,
+      "ry": 0,
+      "hand": "left",
+      "region": "top"
+    },
+    {
+      "id": "P02",
+      "index": 2,
+      "w": 100,
+      "h": 100,
+      "x": 200,
+      "y": 62,
+      "rot": 0.0,
+      "rx": 0,
+      "ry": 0,
+      "hand": "left",
+      "region": "top"
+    },
+    {
+      "id": "P03",
+      "index": 3,
+      "w": 100,
+      "h": 100,
+      "x": 300,
+      "y": 25,
+      "rot": 0.0,
+      "rx": 0,
+      "ry": 0,
+      "hand": "left",
+      "region": "top"
+    },
+    {
+      "id": "P04",
+      "index": 4,
+      "w": 100,
+      "h": 100,
+      "x": 400,
+      "y": 0,
+      "rot": 0.0,
+      "rx": 0,
+      "ry": 0,
+      "hand": "left",
+      "region": "top"
+    },
+    {
+      "id": "P05",
+      "index": 5,
+      "w": 100,
+      "h": 100,
+      "x": 500,
+      "y": 25,
+      "rot": 0.0,
+      "rx": 0,
+      "ry": 0,
+      "hand": "left",
+      "region": "top"
+    },
+    {
+      "id": "P06",
+      "index": 6,
+      "w": 100,
+      "h": 100,
+      "x": 600,
+      "y": 37,
+      "rot": 0.0,
+      "rx": 0,
+      "ry": 0,
+      "hand": "left",
+      "region": "top"
+    },
+    {
+      "id": "P07",
+      "index": 7,
+      "w": 100,
+      "h": 100,
+      "x": 1000,
+      "y": 37,
+      "rot": 0.0,
+      "rx": 0,
+      "ry": 0,
+      "hand": "right",
+      "region": "top"
+    },
+    {
+      "id": "P08",
+      "index": 8,
+      "w": 100,
+      "h": 100,
+      "x": 1100,
+      "y": 25,
+      "rot": 0.0,
+      "rx": 0,
+      "ry": 0,
+      "hand": "right",
+      "region": "top"
+    },
+    {
+      "id": "P09",
+      "index": 9,
+      "w": 100,
+      "h": 100,
+      "x": 1200,
+      "y": 0,
+      "rot": 0.0,
+      "rx": 0,
+      "ry": 0,
+      "hand": "right",
+      "region": "top"
+    },
+    {
+      "id": "P10",
+      "index": 10,
+      "w": 100,
+      "h": 100,
+      "x": 1300,
+      "y": 25,
+      "rot": 0.0,
+      "rx": 0,
+      "ry": 0,
+      "hand": "right",
+      "region": "top"
+    },
+    {
+      "id": "P11",
+      "index": 11,
+      "w": 100,
+      "h": 100,
+      "x": 1400,
+      "y": 62,
+      "rot": 0.0,
+      "rx": 0,
+      "ry": 0,
+      "hand": "right",
+      "region": "top"
+    },
+    {
+      "id": "P12",
+      "index": 12,
+      "w": 100,
+      "h": 100,
+      "x": 1500,
+      "y": 75,
+      "rot": 0.0,
+      "rx": 0,
+      "ry": 0,
+      "hand": "right",
+      "region": "top"
+    },
+    {
+      "id": "P13",
+      "index": 13,
+      "w": 100,
+      "h": 100,
+      "x": 1600,
+      "y": 150,
+      "rot": 0.0,
+      "rx": 0,
+      "ry": 0,
+      "hand": "right",
+      "region": "top"
+    },
+    {
+      "id": "P14",
+      "index": 14,
+      "w": 100,
+      "h": 100,
+      "x": 100,
+      "y": 175,
+      "rot": 0.0,
+      "rx": 0,
+      "ry": 0,
+      "hand": "left",
+      "region": "home"
+    },
+    {
+      "id": "P15",
+      "index": 15,
+      "w": 100,
+      "h": 100,
+      "x": 200,
+      "y": 162,
+      "rot": 0.0,
+      "rx": 0,
+      "ry": 0,
+      "hand": "left",
+      "region": "home"
+    },
+    {
+      "id": "P16",
+      "index": 16,
+      "w": 100,
+      "h": 100,
+      "x": 300,
+      "y": 125,
+      "rot": 0.0,
+      "rx": 0,
+      "ry": 0,
+      "hand": "left",
+      "region": "home"
+    },
+    {
+      "id": "P17",
+      "index": 17,
+      "w": 100,
+      "h": 100,
+      "x": 400,
+      "y": 100,
+      "rot": 0.0,
+      "rx": 0,
+      "ry": 0,
+      "hand": "left",
+      "region": "home"
+    },
+    {
+      "id": "P18",
+      "index": 18,
+      "w": 100,
+      "h": 100,
+      "x": 500,
+      "y": 125,
+      "rot": 0.0,
+      "rx": 0,
+      "ry": 0,
+      "hand": "left",
+      "region": "home"
+    },
+    {
+      "id": "P19",
+      "index": 19,
+      "w": 100,
+      "h": 100,
+      "x": 600,
+      "y": 137,
+      "rot": 0.0,
+      "rx": 0,
+      "ry": 0,
+      "hand": "left",
+      "region": "home"
+    },
+    {
+      "id": "P20",
+      "index": 20,
+      "w": 100,
+      "h": 100,
+      "x": 1000,
+      "y": 137,
+      "rot": 0.0,
+      "rx": 0,
+      "ry": 0,
+      "hand": "right",
+      "region": "home"
+    },
+    {
+      "id": "P21",
+      "index": 21,
+      "w": 100,
+      "h": 100,
+      "x": 1100,
+      "y": 125,
+      "rot": 0.0,
+      "rx": 0,
+      "ry": 0,
+      "hand": "right",
+      "region": "home"
+    },
+    {
+      "id": "P22",
+      "index": 22,
+      "w": 100,
+      "h": 100,
+      "x": 1200,
+      "y": 100,
+      "rot": 0.0,
+      "rx": 0,
+      "ry": 0,
+      "hand": "right",
+      "region": "home"
+    },
+    {
+      "id": "P23",
+      "index": 23,
+      "w": 100,
+      "h": 100,
+      "x": 1300,
+      "y": 125,
+      "rot": 0.0,
+      "rx": 0,
+      "ry": 0,
+      "hand": "right",
+      "region": "home"
+    },
+    {
+      "id": "P24",
+      "index": 24,
+      "w": 100,
+      "h": 100,
+      "x": 1400,
+      "y": 162,
+      "rot": 0.0,
+      "rx": 0,
+      "ry": 0,
+      "hand": "right",
+      "region": "home"
+    },
+    {
+      "id": "P25",
+      "index": 25,
+      "w": 100,
+      "h": 100,
+      "x": 1500,
+      "y": 175,
+      "rot": 0.0,
+      "rx": 0,
+      "ry": 0,
+      "hand": "right",
+      "region": "home"
+    },
+    {
+      "id": "P26",
+      "index": 26,
+      "w": 100,
+      "h": 100,
+      "x": 100,
+      "y": 275,
+      "rot": 0.0,
+      "rx": 0,
+      "ry": 0,
+      "hand": "left",
+      "region": "bottom"
+    },
+    {
+      "id": "P27",
+      "index": 27,
+      "w": 100,
+      "h": 100,
+      "x": 200,
+      "y": 262,
+      "rot": 0.0,
+      "rx": 0,
+      "ry": 0,
+      "hand": "left",
+      "region": "bottom"
+    },
+    {
+      "id": "P28",
+      "index": 28,
+      "w": 100,
+      "h": 100,
+      "x": 300,
+      "y": 225,
+      "rot": 0.0,
+      "rx": 0,
+      "ry": 0,
+      "hand": "left",
+      "region": "bottom"
+    },
+    {
+      "id": "P29",
+      "index": 29,
+      "w": 100,
+      "h": 100,
+      "x": 400,
+      "y": 200,
+      "rot": 0.0,
+      "rx": 0,
+      "ry": 0,
+      "hand": "left",
+      "region": "bottom"
+    },
+    {
+      "id": "P30",
+      "index": 30,
+      "w": 100,
+      "h": 100,
+      "x": 500,
+      "y": 225,
+      "rot": 0.0,
+      "rx": 0,
+      "ry": 0,
+      "hand": "left",
+      "region": "bottom"
+    },
+    {
+      "id": "P31",
+      "index": 31,
+      "w": 100,
+      "h": 100,
+      "x": 600,
+      "y": 237,
+      "rot": 0.0,
+      "rx": 0,
+      "ry": 0,
+      "hand": "left",
+      "region": "bottom"
+    },
+    {
+      "id": "P32",
+      "index": 32,
+      "w": 100,
+      "h": 100,
+      "x": 1000,
+      "y": 237,
+      "rot": 0.0,
+      "rx": 0,
+      "ry": 0,
+      "hand": "right",
+      "region": "bottom"
+    },
+    {
+      "id": "P33",
+      "index": 33,
+      "w": 100,
+      "h": 100,
+      "x": 1100,
+      "y": 225,
+      "rot": 0.0,
+      "rx": 0,
+      "ry": 0,
+      "hand": "right",
+      "region": "bottom"
+    },
+    {
+      "id": "P34",
+      "index": 34,
+      "w": 100,
+      "h": 100,
+      "x": 1200,
+      "y": 200,
+      "rot": 0.0,
+      "rx": 0,
+      "ry": 0,
+      "hand": "right",
+      "region": "bottom"
+    },
+    {
+      "id": "P35",
+      "index": 35,
+      "w": 100,
+      "h": 100,
+      "x": 1300,
+      "y": 225,
+      "rot": 0.0,
+      "rx": 0,
+      "ry": 0,
+      "hand": "right",
+      "region": "bottom"
+    },
+    {
+      "id": "P36",
+      "index": 36,
+      "w": 100,
+      "h": 100,
+      "x": 1400,
+      "y": 262,
+      "rot": 0.0,
+      "rx": 0,
+      "ry": 0,
+      "hand": "right",
+      "region": "bottom"
+    },
+    {
+      "id": "P37",
+      "index": 37,
+      "w": 100,
+      "h": 100,
+      "x": 1500,
+      "y": 275,
+      "rot": 0.0,
+      "rx": 0,
+      "ry": 0,
+      "hand": "right",
+      "region": "bottom"
+    },
+    {
+      "id": "P38",
+      "index": 38,
+      "w": 100,
+      "h": 100,
+      "x": 450,
+      "y": 328,
+      "rot": 0.0,
+      "rx": 0,
+      "ry": 0,
+      "hand": "left",
+      "region": "thumb"
+    },
+    {
+      "id": "P39",
+      "index": 39,
+      "w": 100,
+      "h": 100,
+      "x": 561,
+      "y": 342,
+      "rot": 15.0,
+      "rx": 611,
+      "ry": 392,
+      "hand": "left",
+      "region": "thumb"
+    },
+    {
+      "id": "P40",
+      "index": 40,
+      "w": 100,
+      "h": 150,
+      "x": 677,
+      "y": 338,
+      "rot": 30.0,
+      "rx": 727,
+      "ry": 413,
+      "hand": "left",
+      "region": "thumb"
+    },
+    {
+      "id": "P41",
+      "index": 41,
+      "w": 100,
+      "h": 150,
+      "x": 923,
+      "y": 338,
+      "rot": -30.0,
+      "rx": 973,
+      "ry": 413,
+      "hand": "right",
+      "region": "thumb"
+    },
+    {
+      "id": "P42",
+      "index": 42,
+      "w": 100,
+      "h": 100,
+      "x": 1039,
+      "y": 342,
+      "rot": -15.0,
+      "rx": 1089,
+      "ry": 392,
+      "hand": "right",
+      "region": "thumb"
+    },
+    {
+      "id": "P43",
+      "index": 43,
+      "w": 100,
+      "h": 100,
+      "x": 1150,
+      "y": 328,
+      "rot": 0.0,
+      "rx": 0,
+      "ry": 0,
+      "hand": "right",
+      "region": "thumb"
+    }
+  ],
+  "layers": [
+    {
+      "id": "base",
+      "name": "Base",
+      "description": "Raw ANSI positions interpreted by host-owned Colemak-DH or Russian, with familiar thumb modifiers and mirrored index-finger Shift holds.",
+      "keys": {
+        "P00": {
+          "primary": "Esc",
+          "tap": "Escape",
+          "hold": "Hyper · Ctrl+Option+Command",
+          "holdFace": "hold: Hyper",
+          "category": "modifier",
+          "note": "Remote but available on every layer."
+        },
+        "P01": {
+          "primary": "`",
+          "tap": "`",
+          "secondary": "Russian host layout: ё",
+          "category": "symbol"
+        },
+        "P02": {
+          "primary": "q",
+          "tap": "q",
+          "category": "alpha"
+        },
+        "P03": {
+          "primary": "w",
+          "tap": "w",
+          "category": "alpha"
+        },
+        "P04": {
+          "primary": "e",
+          "tap": "e",
+          "category": "alpha"
+        },
+        "P05": {
+          "primary": "r",
+          "tap": "r",
+          "category": "alpha"
+        },
+        "P06": {
+          "primary": "t",
+          "tap": "t",
+          "category": "alpha"
+        },
+        "P07": {
+          "primary": "y",
+          "tap": "y",
+          "category": "alpha"
+        },
+        "P08": {
+          "primary": "u",
+          "tap": "u",
+          "category": "alpha"
+        },
+        "P09": {
+          "primary": "i",
+          "tap": "i",
+          "category": "alpha"
+        },
+        "P10": {
+          "primary": "o",
+          "tap": "o",
+          "category": "alpha"
+        },
+        "P11": {
+          "primary": "p",
+          "tap": "p",
+          "category": "alpha"
+        },
+        "P12": {
+          "primary": "[",
+          "tap": "[",
+          "category": "symbol"
+        },
+        "P13": {
+          "primary": "]",
+          "tap": "]",
+          "category": "symbol"
+        },
+        "P14": {
+          "primary": "Tab",
+          "tap": "Tab",
+          "category": "navigation"
+        },
+        "P15": {
+          "primary": "a",
+          "tap": "a",
+          "category": "alpha"
+        },
+        "P16": {
+          "primary": "s",
+          "tap": "s",
+          "category": "alpha"
+        },
+        "P17": {
+          "primary": "d",
+          "tap": "d",
+          "category": "alpha"
+        },
+        "P18": {
+          "primary": "f",
+          "tap": "f",
+          "hold": "Shift",
+          "holdFace": "hold: Shift",
+          "secondary": "Colemak-DH host interpretation: t",
+          "category": "modifier"
+        },
+        "P19": {
+          "primary": "g",
+          "tap": "g",
+          "category": "alpha"
+        },
+        "P20": {
+          "primary": "h",
+          "tap": "h",
+          "category": "alpha"
+        },
+        "P21": {
+          "primary": "j",
+          "tap": "j",
+          "hold": "Shift",
+          "holdFace": "hold: Shift",
+          "secondary": "Colemak-DH host interpretation: n",
+          "category": "modifier"
+        },
+        "P22": {
+          "primary": "k",
+          "tap": "k",
+          "category": "alpha"
+        },
+        "P23": {
+          "primary": "l",
+          "tap": "l",
+          "category": "alpha"
+        },
+        "P24": {
+          "primary": ";",
+          "tap": ";",
+          "category": "symbol"
+        },
+        "P25": {
+          "primary": "'",
+          "tap": "'",
+          "category": "symbol"
+        },
+        "P26": {
+          "primary": "Num / Sym",
+          "tap": "Toggle Num / Symbol",
+          "hold": "Momentary Num / Symbol",
+          "holdFace": "hold: MO",
+          "secondary": "Tap for a run; hold for one insertion",
+          "category": "layer"
+        },
+        "P27": {
+          "primary": "z",
+          "tap": "z",
+          "category": "alpha"
+        },
+        "P28": {
+          "primary": "x",
+          "tap": "x",
+          "category": "alpha"
+        },
+        "P29": {
+          "primary": "c",
+          "tap": "c",
+          "category": "alpha"
+        },
+        "P30": {
+          "primary": "v",
+          "tap": "v",
+          "category": "alpha"
+        },
+        "P31": {
+          "primary": "b",
+          "tap": "b",
+          "category": "alpha"
+        },
+        "P32": {
+          "primary": "n",
+          "tap": "n",
+          "category": "alpha"
+        },
+        "P33": {
+          "primary": "m",
+          "tap": "m",
+          "category": "alpha"
+        },
+        "P34": {
+          "primary": ",",
+          "tap": ",",
+          "category": "symbol"
+        },
+        "P35": {
+          "primary": ".",
+          "tap": ".",
+          "category": "symbol"
+        },
+        "P36": {
+          "primary": "/",
+          "tap": "/",
+          "secondary": "Shift + / produces ?",
+          "category": "symbol"
+        },
+        "P37": {
+          "primary": "\\",
+          "tap": "\\",
+          "secondary": "Shift + \\ produces |",
+          "category": "symbol"
+        },
+        "P38": {
+          "primary": "Ctrl",
+          "tap": "Ctrl",
+          "category": "modifier"
+        },
+        "P39": {
+          "primary": "Option",
+          "tap": "Option",
+          "category": "modifier"
+        },
+        "P40": {
+          "primary": "Cmd",
+          "tap": "Cmd",
+          "category": "modifier"
+        },
+        "P41": {
+          "primary": "Space",
+          "tap": "Space",
+          "category": "alpha"
+        },
+        "P42": {
+          "primary": "Enter",
+          "tap": "Return / Enter",
+          "hold": "Momentary Nav / WM",
+          "holdFace": "hold: Nav",
+          "secondary": "Nav release is intended to return to Base",
+          "category": "layer"
+        },
+        "P43": {
+          "primary": "Backspace",
+          "tap": "Backspace",
+          "category": "navigation"
+        }
+      }
+    },
+    {
+      "id": "nav-wm",
+      "name": "Nav / WM",
+      "description": "Hold Enter/Nav: WASD-shaped arrows on the left, AeroSpace workspaces and hold modifiers on the right, and literal F1–F12 below.",
+      "keys": {
+        "P00": {
+          "primary": "Esc",
+          "tap": "Escape",
+          "hold": "Hyper · Ctrl+Option+Command",
+          "holdFace": "hold: Hyper",
+          "category": "modifier",
+          "note": "Remote but available on every layer."
+        },
+        "P01": {
+          "primary": "—",
+          "tap": "Intentionally unassigned",
+          "category": "unassigned"
+        },
+        "P02": {
+          "primary": "—",
+          "tap": "Intentionally unassigned",
+          "category": "unassigned"
+        },
+        "P03": {
+          "primary": "↑",
+          "tap": "↑",
+          "secondary": "Physical W position",
+          "category": "navigation"
+        },
+        "P04": {
+          "primary": "—",
+          "tap": "Intentionally unassigned",
+          "category": "unassigned"
+        },
+        "P05": {
+          "primary": "—",
+          "tap": "Intentionally unassigned",
+          "category": "unassigned"
+        },
+        "P06": {
+          "primary": "—",
+          "tap": "Intentionally unassigned",
+          "category": "unassigned"
+        },
+        "P07": {
+          "primary": "WS 6",
+          "tap": "Focus AeroSpace workspace 6",
+          "secondary": "With Shift: move window to workspace 6",
+          "category": "system"
+        },
+        "P08": {
+          "primary": "WS 7",
+          "tap": "Focus AeroSpace workspace 7",
+          "secondary": "With Shift: move window to workspace 7",
+          "category": "system"
+        },
+        "P09": {
+          "primary": "WS 8",
+          "tap": "Focus AeroSpace workspace 8",
+          "secondary": "With Shift: move window to workspace 8",
+          "category": "system"
+        },
+        "P10": {
+          "primary": "WS 9",
+          "tap": "Focus AeroSpace workspace 9",
+          "secondary": "With Shift: move window to workspace 9",
+          "category": "system"
+        },
+        "P11": {
+          "primary": "WS 10",
+          "tap": "Focus AeroSpace workspace 10",
+          "secondary": "With Shift: move window to workspace 10",
+          "category": "system"
+        },
+        "P12": {
+          "primary": "—",
+          "tap": "Intentionally unassigned",
+          "category": "unassigned"
+        },
+        "P13": {
+          "primary": "—",
+          "tap": "Intentionally unassigned",
+          "category": "unassigned"
+        },
+        "P14": {
+          "primary": "Tab",
+          "tap": "Tab",
+          "category": "navigation"
+        },
+        "P15": {
+          "primary": "←",
+          "tap": "←",
+          "secondary": "Physical A position",
+          "category": "navigation"
+        },
+        "P16": {
+          "primary": "↓",
+          "tap": "↓",
+          "secondary": "Physical S position",
+          "category": "navigation"
+        },
+        "P17": {
+          "primary": "→",
+          "tap": "→",
+          "secondary": "Physical D position",
+          "category": "navigation"
+        },
+        "P18": {
+          "primary": "Shift",
+          "tap": "Shift",
+          "category": "modifier"
+        },
+        "P19": {
+          "primary": "—",
+          "tap": "Intentionally unassigned",
+          "category": "unassigned"
+        },
+        "P20": {
+          "primary": "WS 1",
+          "tap": "Focus AeroSpace workspace 1",
+          "secondary": "With Shift: move window to workspace 1",
+          "category": "system"
+        },
+        "P21": {
+          "primary": "WS 2",
+          "tap": "Focus AeroSpace workspace 2",
+          "hold": "Shift",
+          "holdFace": "hold: Shift",
+          "secondary": "With Shift: move window to workspace 2",
+          "category": "system"
+        },
+        "P22": {
+          "primary": "WS 3",
+          "tap": "Focus AeroSpace workspace 3",
+          "hold": "Cmd",
+          "holdFace": "hold: Cmd",
+          "secondary": "With Shift: move window to workspace 3",
+          "category": "system"
+        },
+        "P23": {
+          "primary": "WS 4",
+          "tap": "Focus AeroSpace workspace 4",
+          "hold": "Option",
+          "holdFace": "hold: Option",
+          "secondary": "With Shift: move window to workspace 4",
+          "category": "system"
+        },
+        "P24": {
+          "primary": "WS 5",
+          "tap": "Focus AeroSpace workspace 5",
+          "hold": "Ctrl",
+          "holdFace": "hold: Ctrl",
+          "secondary": "With Shift: move window to workspace 5",
+          "category": "system"
+        },
+        "P25": {
+          "primary": "—",
+          "tap": "Intentionally unassigned",
+          "category": "unassigned"
+        },
+        "P26": {
+          "primary": "F1",
+          "tap": "F1",
+          "secondary": "Planned Hyper action: display brightness down",
+          "category": "system",
+          "note": "Literal F-key generation is implemented; firmware-native Mac system morph remains an explicit design question."
+        },
+        "P27": {
+          "primary": "F2",
+          "tap": "F2",
+          "secondary": "Planned Hyper action: display brightness up",
+          "category": "system",
+          "note": "Literal F-key generation is implemented; firmware-native Mac system morph remains an explicit design question."
+        },
+        "P28": {
+          "primary": "F3",
+          "tap": "F3",
+          "secondary": "Planned Hyper action: Mission Control",
+          "category": "system",
+          "note": "Literal F-key generation is implemented; firmware-native Mac system morph remains an explicit design question."
+        },
+        "P29": {
+          "primary": "F4",
+          "tap": "F4",
+          "secondary": "Planned Hyper action: Spotlight",
+          "category": "system",
+          "note": "Literal F-key generation is implemented; firmware-native Mac system morph remains an explicit design question."
+        },
+        "P30": {
+          "primary": "F5",
+          "tap": "F5",
+          "secondary": "Planned Hyper action: Dictation",
+          "category": "system",
+          "note": "Literal F-key generation is implemented; firmware-native Mac system morph remains an explicit design question."
+        },
+        "P31": {
+          "primary": "F6",
+          "tap": "F6",
+          "secondary": "Planned Hyper action: Do Not Disturb",
+          "category": "system",
+          "note": "Literal F-key generation is implemented; firmware-native Mac system morph remains an explicit design question."
+        },
+        "P32": {
+          "primary": "F7",
+          "tap": "F7",
+          "secondary": "Planned Hyper action: previous track",
+          "category": "system",
+          "note": "Literal F-key generation is implemented; firmware-native Mac system morph remains an explicit design question."
+        },
+        "P33": {
+          "primary": "F8",
+          "tap": "F8",
+          "secondary": "Planned Hyper action: play / pause",
+          "category": "system",
+          "note": "Literal F-key generation is implemented; firmware-native Mac system morph remains an explicit design question."
+        },
+        "P34": {
+          "primary": "F9",
+          "tap": "F9",
+          "secondary": "Planned Hyper action: next track",
+          "category": "system",
+          "note": "Literal F-key generation is implemented; firmware-native Mac system morph remains an explicit design question."
+        },
+        "P35": {
+          "primary": "F10",
+          "tap": "F10",
+          "secondary": "Planned Hyper action: mute",
+          "category": "system",
+          "note": "Literal F-key generation is implemented; firmware-native Mac system morph remains an explicit design question."
+        },
+        "P36": {
+          "primary": "F11",
+          "tap": "F11",
+          "secondary": "Planned Hyper action: volume down",
+          "category": "system",
+          "note": "Literal F-key generation is implemented; firmware-native Mac system morph remains an explicit design question."
+        },
+        "P37": {
+          "primary": "F12",
+          "tap": "F12",
+          "secondary": "Planned Hyper action: volume up",
+          "category": "system",
+          "note": "Literal F-key generation is implemented; firmware-native Mac system morph remains an explicit design question."
+        },
+        "P38": {
+          "primary": "Ctrl",
+          "tap": "Ctrl",
+          "category": "modifier"
+        },
+        "P39": {
+          "primary": "Option",
+          "tap": "Option",
+          "category": "modifier"
+        },
+        "P40": {
+          "primary": "Cmd",
+          "tap": "Cmd",
+          "category": "modifier"
+        },
+        "P41": {
+          "primary": "Space",
+          "tap": "Space",
+          "category": "alpha"
+        },
+        "P42": {
+          "primary": "▽",
+          "tap": "Transparent to Base",
+          "category": "unassigned"
+        },
+        "P43": {
+          "primary": "▽",
+          "tap": "Transparent to Base",
+          "category": "unassigned"
+        }
+      }
+    },
+    {
+      "id": "num-symbol",
+      "name": "Num / Symbol",
+      "description": "Tap Num for a run or hold it for one insertion: 1–0 occupy the home row, and 4/7 preserve the same mirrored index-finger hold-Shifts as Base.",
+      "keys": {
+        "P00": {
+          "primary": "Esc",
+          "tap": "Escape",
+          "hold": "Hyper · Ctrl+Option+Command",
+          "holdFace": "hold: Hyper",
+          "category": "modifier",
+          "note": "Remote but available on every layer."
+        },
+        "P01": {
+          "primary": "—",
+          "tap": "Intentionally unassigned",
+          "category": "unassigned"
+        },
+        "P02": {
+          "primary": "—",
+          "tap": "Intentionally unassigned",
+          "category": "unassigned"
+        },
+        "P03": {
+          "primary": "—",
+          "tap": "Intentionally unassigned",
+          "category": "unassigned"
+        },
+        "P04": {
+          "primary": "—",
+          "tap": "Intentionally unassigned",
+          "category": "unassigned"
+        },
+        "P05": {
+          "primary": "—",
+          "tap": "Intentionally unassigned",
+          "category": "unassigned"
+        },
+        "P06": {
+          "primary": "—",
+          "tap": "Intentionally unassigned",
+          "category": "unassigned"
+        },
+        "P07": {
+          "primary": "—",
+          "tap": "Intentionally unassigned",
+          "category": "unassigned"
+        },
+        "P08": {
+          "primary": "—",
+          "tap": "Intentionally unassigned",
+          "category": "unassigned"
+        },
+        "P09": {
+          "primary": "—",
+          "tap": "Intentionally unassigned",
+          "category": "unassigned"
+        },
+        "P10": {
+          "primary": "—",
+          "tap": "Intentionally unassigned",
+          "category": "unassigned"
+        },
+        "P11": {
+          "primary": "—",
+          "tap": "Intentionally unassigned",
+          "category": "unassigned"
+        },
+        "P12": {
+          "primary": "−",
+          "tap": "−",
+          "secondary": "With Shift: underscore",
+          "category": "symbol"
+        },
+        "P13": {
+          "primary": "=",
+          "tap": "=",
+          "secondary": "With Shift: plus",
+          "category": "symbol"
+        },
+        "P14": {
+          "primary": "Tab",
+          "tap": "Tab",
+          "category": "navigation"
+        },
+        "P15": {
+          "primary": "1",
+          "tap": "1",
+          "secondary": "With Shift: !",
+          "category": "symbol"
+        },
+        "P16": {
+          "primary": "2",
+          "tap": "2",
+          "secondary": "With Shift: @",
+          "category": "symbol"
+        },
+        "P17": {
+          "primary": "3",
+          "tap": "3",
+          "secondary": "With Shift: #",
+          "category": "symbol"
+        },
+        "P18": {
+          "primary": "4",
+          "tap": "4",
+          "hold": "Shift",
+          "holdFace": "hold: Shift",
+          "secondary": "With opposite Shift: $",
+          "category": "modifier"
+        },
+        "P19": {
+          "primary": "5",
+          "tap": "5",
+          "secondary": "With Shift: %",
+          "category": "symbol"
+        },
+        "P20": {
+          "primary": "6",
+          "tap": "6",
+          "secondary": "With Shift: ^",
+          "category": "symbol"
+        },
+        "P21": {
+          "primary": "7",
+          "tap": "7",
+          "hold": "Shift",
+          "holdFace": "hold: Shift",
+          "secondary": "With opposite Shift: &",
+          "category": "modifier"
+        },
+        "P22": {
+          "primary": "8",
+          "tap": "8",
+          "secondary": "With Shift: *",
+          "category": "symbol"
+        },
+        "P23": {
+          "primary": "9",
+          "tap": "9",
+          "secondary": "With Shift: (",
+          "category": "symbol"
+        },
+        "P24": {
+          "primary": "0",
+          "tap": "0",
+          "secondary": "With Shift: )",
+          "category": "symbol"
+        },
+        "P25": {
+          "primary": "—",
+          "tap": "Intentionally unassigned",
+          "category": "unassigned"
+        },
+        "P26": {
+          "primary": "Base",
+          "tap": "Return to Base",
+          "secondary": "Same physical position as Num / Symbol on Base",
+          "category": "layer"
+        },
+        "P27": {
+          "primary": "Clear BT",
+          "tap": "Unassigned without the complete Hyper chord",
+          "holdFace": "Hyper + tap",
+          "secondary": "Hyper + tap clears the selected Bluetooth profile",
+          "category": "danger",
+          "note": "The generated keymap requires Ctrl+Option+Command through nested mod-morph gates."
+        },
+        "P28": {
+          "primary": "Clear all",
+          "tap": "Unassigned without the complete Hyper chord",
+          "holdFace": "Hyper + tap",
+          "secondary": "Hyper + tap clears every Bluetooth bond",
+          "category": "danger",
+          "note": "The generated keymap requires Ctrl+Option+Command through nested mod-morph gates."
+        },
+        "P29": {
+          "primary": "Reboot L",
+          "tap": "Unassigned without the complete Hyper chord",
+          "holdFace": "Hyper + tap",
+          "secondary": "Hyper + tap restarts the central half",
+          "category": "danger",
+          "note": "The generated keymap requires Ctrl+Option+Command through nested mod-morph gates."
+        },
+        "P30": {
+          "primary": "Flash L",
+          "tap": "Unassigned without the complete Hyper chord",
+          "holdFace": "Hyper + tap",
+          "secondary": "Hyper + tap enters the central-half bootloader",
+          "category": "danger",
+          "note": "The generated keymap requires Ctrl+Option+Command through nested mod-morph gates."
+        },
+        "P31": {
+          "primary": "—",
+          "tap": "Intentionally unassigned",
+          "category": "unassigned"
+        },
+        "P32": {
+          "primary": "BT 1",
+          "tap": "Unassigned without the complete Hyper chord",
+          "holdFace": "Hyper + tap",
+          "secondary": "Hyper + tap selects this Bluetooth profile",
+          "category": "connection",
+          "note": "The generated keymap requires Ctrl+Option+Command through nested mod-morph gates."
+        },
+        "P33": {
+          "primary": "BT 2",
+          "tap": "Unassigned without the complete Hyper chord",
+          "holdFace": "Hyper + tap",
+          "secondary": "Hyper + tap selects this Bluetooth profile",
+          "category": "connection",
+          "note": "The generated keymap requires Ctrl+Option+Command through nested mod-morph gates."
+        },
+        "P34": {
+          "primary": "BT 3",
+          "tap": "Unassigned without the complete Hyper chord",
+          "holdFace": "Hyper + tap",
+          "secondary": "Hyper + tap selects this Bluetooth profile",
+          "category": "connection",
+          "note": "The generated keymap requires Ctrl+Option+Command through nested mod-morph gates."
+        },
+        "P35": {
+          "primary": "BT 4",
+          "tap": "Unassigned without the complete Hyper chord",
+          "holdFace": "Hyper + tap",
+          "secondary": "Hyper + tap selects this Bluetooth profile",
+          "category": "connection",
+          "note": "The generated keymap requires Ctrl+Option+Command through nested mod-morph gates."
+        },
+        "P36": {
+          "primary": "BT 5",
+          "tap": "Unassigned without the complete Hyper chord",
+          "holdFace": "Hyper + tap",
+          "secondary": "Hyper + tap selects this Bluetooth profile",
+          "category": "connection",
+          "note": "The generated keymap requires Ctrl+Option+Command through nested mod-morph gates."
+        },
+        "P37": {
+          "primary": "—",
+          "tap": "Intentionally unassigned",
+          "category": "unassigned"
+        },
+        "P38": {
+          "primary": "Ctrl",
+          "tap": "Ctrl",
+          "category": "modifier"
+        },
+        "P39": {
+          "primary": "Option",
+          "tap": "Option",
+          "category": "modifier"
+        },
+        "P40": {
+          "primary": "Cmd",
+          "tap": "Cmd",
+          "category": "modifier"
+        },
+        "P41": {
+          "primary": "Space",
+          "tap": "Space",
+          "category": "alpha"
+        },
+        "P42": {
+          "primary": "Enter",
+          "tap": "Return / Enter",
+          "hold": "Momentary Nav / WM",
+          "holdFace": "hold: Nav",
+          "secondary": "Nav release is intended to return to Base",
+          "category": "layer"
+        },
+        "P43": {
+          "primary": "Backspace",
+          "tap": "Backspace",
+          "category": "navigation"
+        }
+      }
+    }
+  ],
+  "hostLegends": [
+    {
+      "id": "colemak-dh-ansi",
+      "name": "Colemak-DH ANSI",
+      "keys": {
+        "P01": "`",
+        "P02": "q",
+        "P03": "w",
+        "P04": "f",
+        "P05": "p",
+        "P06": "b",
+        "P07": "j",
+        "P08": "l",
+        "P09": "u",
+        "P10": "y",
+        "P11": ";",
+        "P12": "[",
+        "P13": "]",
+        "P15": "a",
+        "P16": "r",
+        "P17": "s",
+        "P18": "t",
+        "P19": "g",
+        "P20": "m",
+        "P21": "n",
+        "P22": "e",
+        "P23": "i",
+        "P24": "o",
+        "P25": "'",
+        "P27": "z",
+        "P28": "x",
+        "P29": "c",
+        "P30": "d",
+        "P31": "v",
+        "P32": "k",
+        "P33": "h",
+        "P34": ",",
+        "P35": ".",
+        "P36": "/",
+        "P37": "\\"
+      }
+    },
+    {
+      "id": "russian",
+      "name": "Russian",
+      "keys": {
+        "P01": "ё",
+        "P02": "й",
+        "P03": "ц",
+        "P04": "у",
+        "P05": "к",
+        "P06": "е",
+        "P07": "н",
+        "P08": "г",
+        "P09": "ш",
+        "P10": "щ",
+        "P11": "з",
+        "P12": "х",
+        "P13": "ъ",
+        "P15": "ф",
+        "P16": "ы",
+        "P17": "в",
+        "P18": "а",
+        "P19": "п",
+        "P20": "р",
+        "P21": "о",
+        "P22": "л",
+        "P23": "д",
+        "P24": "ж",
+        "P25": "э",
+        "P27": "я",
+        "P28": "ч",
+        "P29": "с",
+        "P30": "м",
+        "P31": "и",
+        "P32": "т",
+        "P33": "ь",
+        "P34": "б",
+        "P35": "ю",
+        "P36": "."
+      }
+    }
+  ],
+  "sequences": [
+    {
+      "id": "leave-number-layer",
+      "name": "Number-layer recovery",
+      "description": "The same lower-left rail key that enters Num returns to Base when Num is latched.",
+      "steps": [
+        {
+          "key": "P26",
+          "label": "Num / Base"
+        }
+      ]
+    },
+    {
+      "id": "nav-panic",
+      "name": "Universal Base return",
+      "description": "The intended invariant is that releasing Nav disables every non-Base layer.",
+      "steps": [
+        {
+          "key": "P42",
+          "label": "Hold Nav, then release"
+        }
+      ]
+    }
+  ],
+  "openQuestions": [
+    "Tune tapping-term, quick-tap, and hold-trigger behavior on physical hardware without changing the layout model.",
+    "Decide whether the Hyper-gated admin strip should become a silent firmware-only Admin layer before switching Bluetooth hosts.",
+    "Confirm whether Nav release requires a custom behavior to force Base when Nav was entered from latched Num.",
+    "Confirm the desired MacBook-style system actions for F1–F12; generated firmware currently emits literal F-key codes.",
+    "Leave unused Num bottom-row positions empty until real use reveals a need."
+  ]
+}

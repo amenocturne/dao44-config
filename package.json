@@ -1,0 +1,7 @@
+{
+  "name": "dao44-preview",
+  "private": true,
+  "devDependencies": {
+    "@biomejs/biome": "2.2.3"
+  }
+}

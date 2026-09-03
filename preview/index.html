@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Live visual preview of the generated Dao44 keyboard layout" />
+    <title>Dao44 layout preview</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22><text y=%22.9em%22 font-size=%2290%22>⌨</text></svg>" />
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <main class="shell">
+      <header class="page-header">
+        <div>
+          <p class="eyebrow">Rust-generated keyboard configuration</p>
+          <h1 id="title">Dao44</h1>
+          <p id="layer-description" class="lede"></p>
+        </div>
+        <span id="revision" class="revision"></span>
+      </header>
+
+      <nav id="layer-tabs" class="tabs" aria-label="Keyboard layers"></nav>
+      <section id="host-controls" class="host-controls" aria-label="Host legend">
+        <span>Host legend</span>
+        <div id="host-buttons" class="tabs compact"></div>
+      </section>
+
+      <section class="keyboard-panel" aria-label="Interactive Dao44 keyboard">
+        <div class="keyboard-scroll">
+          <svg class="keyboard" viewBox="-35 -25 1770 505" role="img" aria-labelledby="keyboard-title keyboard-description">
+            <title id="keyboard-title">Dao44 key purposes</title>
+            <desc id="keyboard-description">A split, column-staggered 44-key keyboard. Select a layer and a key to inspect its tap and hold behavior.</desc>
+            <path class="half-outline" d="M-18 132 L90 132 L90 48 L650 5 L710 45 L710 292 L825 335 L790 485 L420 445 L80 398 L-18 250 Z" />
+            <path class="half-outline" d="M1718 132 L1610 132 L1610 48 L1050 5 L990 45 L990 292 L875 335 L910 485 L1280 445 L1620 398 L1718 250 Z" />
+            <g id="keys"></g>
+          </svg>
+        </div>
+
+        <div class="inspector" aria-live="polite">
+          <div class="selected">
+            <span>Selected</span>
+            <strong id="detail-primary">—</strong>
+            <small id="detail-position">—</small>
+          </div>
+          <dl>
+            <div><dt>Tap</dt><dd id="detail-tap">—</dd></div>
+            <div><dt>Hold</dt><dd id="detail-hold">—</dd></div>
+            <div><dt>Secondary</dt><dd id="detail-secondary">—</dd></div>
+            <div><dt>Context</dt><dd id="detail-note">—</dd></div>
+          </dl>
+        </div>
+      </section>
+
+      <section class="legend" aria-label="Color legend">
+        <span><i class="alpha"></i>Typing</span>
+        <span><i class="modifier"></i>Modifier</span>
+        <span><i class="layer"></i>Layer</span>
+        <span><i class="navigation"></i>Navigation</span>
+        <span><i class="symbol"></i>Number / symbol</span>
+        <span><i class="system"></i>Workspace / system</span>
+        <span><i class="connection"></i>Bluetooth</span>
+        <span><i class="danger"></i>Guarded recovery</span>
+      </section>
+
+      <section class="lower-grid">
+        <article>
+          <p class="eyebrow">Recovery invariants</p>
+          <div id="sequences" class="cards"></div>
+        </article>
+        <article>
+          <p class="eyebrow">Still deliberately open</p>
+          <ol id="questions" class="questions"></ol>
+        </article>
+      </section>
+    </main>
+    <script type="module" src="/app.js"></script>
+  </body>
+</html>
