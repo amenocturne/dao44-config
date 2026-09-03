@@ -7,6 +7,7 @@
 /ergonautkb-zmk-module
 /.west
 /build
+/.env
 node_modules
 result
 .DS_Store

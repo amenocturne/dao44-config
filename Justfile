@@ -98,6 +98,38 @@ _firmware: _generate
     tmp/zmk-venv/bin/west build -s zmk/app -d build/left -b dao_left -- -DZMK_CONFIG={{justfile_directory()}}/config
     tmp/zmk-venv/bin/west build -s zmk/app -d build/right -b dao_right -- -DZMK_CONFIG={{justfile_directory()}}/config
 
+# Register the only mounted UF2 bootloader as the left half in local .env
+register-left:
+    just _in-dev-shell _register-left
+
+[private]
+_register-left:
+    cargo run --quiet -- register-left
+
+# Register the only mounted UF2 bootloader as the right half in local .env
+register-right:
+    just _in-dev-shell _register-right
+
+[private]
+_register-right:
+    cargo run --quiet -- register-right
+
+# Show how mounted bootloaders map to firmware without writing anything
+flash-check:
+    just _in-dev-shell _flash-check
+
+[private]
+_flash-check:
+    cargo run --quiet -- flash-check
+
+# Build and safely flash every registered Dao bootloader currently mounted
+flash:
+    just _in-dev-shell _flash
+
+[private]
+_flash: _firmware
+    cargo run --quiet -- flash
+
 # Configure Git to use the repository's versioned hooks
 hooks-install:
     git config core.hooksPath .githooks

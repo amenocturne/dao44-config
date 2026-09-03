@@ -1,3 +1,4 @@
+mod flash;
 mod generate;
 mod layout;
 mod model;
@@ -8,7 +9,8 @@ use anyhow::{Context, Result, bail};
 
 fn main() -> Result<()> {
     let root = PathBuf::from(env!("CARGO_MANIFEST_DIR"));
-    let command = std::env::args().nth(1).unwrap_or_else(|| "generate".into());
+    let mut args = std::env::args().skip(1);
+    let command = args.next().unwrap_or_else(|| "generate".into());
     let spec = layout::dao44();
 
     match command.as_str() {
@@ -17,7 +19,13 @@ fn main() -> Result<()> {
             spec.validate()?;
             check_generated(&root, &spec)
         }
-        other => bail!("unknown command {other:?}; expected generate or check"),
+        "register-left" => flash::register(&root, flash::Half::Left),
+        "register-right" => flash::register(&root, flash::Half::Right),
+        "flash-check" => flash::flash(&root, true),
+        "flash" => flash::flash(&root, false),
+        other => bail!(
+            "unknown command {other:?}; expected generate, check, register-left, register-right, flash-check, or flash"
+        ),
     }
 }
 

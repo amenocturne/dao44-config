@@ -24,3 +24,5 @@ The Bun server watches Rust and preview sources. Rust changes run the generator 
 ## Firmware boundary
 
 The generator emits ordinary ZMK devicetree rather than linking Rust into firmware. Rust provides the authoring language, validation, and macros; ZMK remains responsible for timing and hardware behavior. This keeps firmware upstream-compatible and avoids maintaining an FFI layer inside Zephyr.
+
+On macOS, the flashing boundary identifies physical halves by USB serial rather than the shared `NRF52BOOT` label. Registration writes those serials only to ignored `.env`. Flashing discovers candidate volumes, validates their UF2 identity, joins each disk's device-tree location to its USB serial, and resolves every serial to a side before copying anything. Unknown, duplicate, or ambiguous devices abort the complete operation rather than allowing a positional guess.
