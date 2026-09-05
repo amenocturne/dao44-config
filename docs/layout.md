@@ -18,9 +18,9 @@ The alpha block is untouched ANSI. Host legend switching in the preview changes 
 
 - `P18`: tap raw F (Colemak-DH T), hold left Shift.
 - `P21`: tap raw J (Colemak-DH N), hold right Shift.
-- `P26`: tap toggles Num/Symbol; hold activates it momentarily.
+- `P26` is unassigned on Base.
 - `/` and `\` remain on the bottom-right positions; Shift produces `?` and `|`.
-- Thumbs, left to right: Ctrl, Option, Cmd | Enter/Nav, Space, Backspace. Space owns the natural middle thumb position because it is substantially more frequent than Enter.
+- Thumbs, left to right: Ctrl, Option, Cmd | Enter/Nav, Space, Backspace/Num. Tap Backspace normally; hold it for momentary Num.
 
 This keeps Ctrl-W, Ctrl-B, Ctrl-C, Ctrl-Space, Option-Space, Space leader, Cmd/Option-Backspace, and combined Cmd/Option+Shift editing available without a second translation scheme.
 
@@ -40,13 +40,13 @@ The earlier arrows-right/workspaces-left variant was discarded because it broke 
 
 ## Num / Symbol
 
-Tap Num for a run or hold it for one insertion.
+Hold Backspace/Num; releasing it always returns to Base. There is no persistent Num state.
 
 - Home row is `1 2 3 4 5 | 6 7 8 9 0`.
 - Tap 4 / hold left Shift and tap 7 / hold right Shift, preserving the same physical Shift positions as Base.
 - Real Shift+number produces symbols, including genuine Cmd+Shift+3 rather than a `#` macro.
 - Minus follows `0` on the home row and equal sits on the adjacent outer-right key; Shift produces underscore and plus.
-- `P26` returns a latched Num layer to Base.
+- `P26` remains unassigned; correcting a number means releasing Num, tapping Backspace, and holding it again.
 - Left bottom recovery actions require the complete Hyper chord: clear current bond, clear all bonds, reset central/left, bootloader central/left.
 - Right bottom selects Bluetooth profiles 1–5 through the same Hyper gate. USB needs no mode key.
 

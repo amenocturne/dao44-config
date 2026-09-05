@@ -722,12 +722,9 @@
           "category": "symbol"
         },
         "P26": {
-          "primary": "Num / Sym",
-          "tap": "Toggle Num / Symbol",
-          "hold": "Momentary Num / Symbol",
-          "holdFace": "hold: MO",
-          "secondary": "Tap for a run; hold for one insertion",
-          "category": "layer"
+          "primary": "—",
+          "tap": "Intentionally unassigned",
+          "category": "unassigned"
         },
         "P27": {
           "primary": "z",
@@ -817,7 +814,10 @@
         "P43": {
           "primary": "Backspace",
           "tap": "Backspace",
-          "category": "navigation"
+          "hold": "Momentary Num / Symbol",
+          "holdFace": "hold: Num",
+          "secondary": "Release always returns to Base",
+          "category": "layer"
         }
       }
     },
@@ -1100,7 +1100,7 @@
     {
       "id": "num-symbol",
       "name": "Num / Symbol",
-      "description": "Tap Num for a run or hold it for one insertion: 1–0 occupy the home row, and 4/7 preserve the same mirrored index-finger hold-Shifts as Base.",
+      "description": "Hold Backspace for a stateless Num / Symbol layer: 1–0 occupy the home row, and 4/7 preserve the same mirrored index-finger hold-Shifts as Base.",
       "keys": {
         "P00": {
           "primary": "Esc",
@@ -1252,10 +1252,9 @@
           "category": "symbol"
         },
         "P26": {
-          "primary": "Base",
-          "tap": "Return to Base",
-          "secondary": "Same physical position as Num / Symbol on Base",
-          "category": "layer"
+          "primary": "—",
+          "tap": "Intentionally unassigned",
+          "category": "unassigned"
         },
         "P27": {
           "primary": "Clear BT",
@@ -1370,7 +1369,10 @@
         "P43": {
           "primary": "Backspace",
           "tap": "Backspace",
-          "category": "navigation"
+          "hold": "Momentary Num / Symbol",
+          "holdFace": "hold: Num",
+          "secondary": "Release always returns to Base",
+          "category": "layer"
         }
       }
     }
@@ -1459,17 +1461,6 @@
     }
   ],
   "sequences": [
-    {
-      "id": "leave-number-layer",
-      "name": "Number-layer recovery",
-      "description": "The same lower-left rail key that enters Num returns to Base when Num is latched.",
-      "steps": [
-        {
-          "key": "P26",
-          "label": "Num / Base"
-        }
-      ]
-    },
     {
       "id": "nav-panic",
       "name": "Universal Base return",

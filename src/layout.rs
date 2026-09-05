@@ -105,7 +105,7 @@ fn base() -> Layer {
             key("L", "l", Alpha),
             key("SEMI", ";", Symbol),
             key("SQT", "'", Symbol),
-            Action::NumberMode,
+            Action::None,
             key("Z", "z", Alpha),
             key("X", "x", Alpha),
             key("C", "c", Alpha),
@@ -122,7 +122,7 @@ fn base() -> Layer {
             key("LGUI", "Cmd", Mod),
             Action::NavEnter,
             key("SPACE", "Space", Alpha),
-            key("BSPC", "Backspace", Navigation),
+            Action::BackspaceNum,
         ],
     }
 }
@@ -223,7 +223,6 @@ fn num() -> Layer {
     keys[23] = annotated_key("N9", "9", Symbol, "With Shift: (");
     keys[24] = annotated_key("N0", "0", Symbol, "With Shift: )");
     keys[25] = annotated_key("MINUS", "−", Symbol, "With Shift: underscore");
-    keys[26] = Action::ReturnToBase;
     keys[27] = guarded(
         "Clear BT",
         "Hyper + tap clears the selected Bluetooth profile",
@@ -267,12 +266,12 @@ fn num() -> Layer {
     keys[40] = key("LGUI", "Cmd", Mod);
     keys[41] = Action::NavEnter;
     keys[42] = key("SPACE", "Space", Alpha);
-    keys[43] = key("BSPC", "Backspace", Navigation);
+    keys[43] = Action::BackspaceNum;
 
     Layer {
         id: LayerId::Num,
         name: "Num / Symbol",
-        description: "Tap Num for a run or hold it for one insertion: 1–0 occupy the home row, and 4/7 preserve the same mirrored index-finger hold-Shifts as Base.",
+        description: "Hold Backspace for a stateless Num / Symbol layer: 1–0 occupy the home row, and 4/7 preserve the same mirrored index-finger hold-Shifts as Base.",
         keys,
     }
 }

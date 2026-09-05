@@ -138,8 +138,7 @@ pub enum Action {
         secondary: &'static str,
     },
     HyperEscape,
-    NumberMode,
-    ReturnToBase,
+    BackspaceNum,
     NavEnter,
     Workspace {
         number: u8,
@@ -169,8 +168,7 @@ impl Action {
                 format!("&mt {} {tap_code}", modifier.zmk())
             }
             Self::HyperEscape => "&mt LC(LA(LGUI)) ESC".into(),
-            Self::NumberMode => "&num_mode NUM NUM".into(),
-            Self::ReturnToBase => "&to BASE".into(),
+            Self::BackspaceNum => "&lt NUM BSPC".into(),
             Self::NavEnter => "&lt NAV RET".into(),
             Self::Workspace { number, hold } => {
                 let digit = if number == 10 {
@@ -206,12 +204,10 @@ impl Action {
                 .hold("Hyper · Ctrl+Option+Command")
                 .hold_face("hold: Hyper")
                 .note("Remote but available on every layer."),
-            Self::NumberMode => PreviewAction::new("Num / Sym", "Toggle Num / Symbol", Category::Layer)
+            Self::BackspaceNum => PreviewAction::new("Backspace", "Backspace", Category::Layer)
                 .hold("Momentary Num / Symbol")
-                .hold_face("hold: MO")
-                .secondary("Tap for a run; hold for one insertion"),
-            Self::ReturnToBase => PreviewAction::new("Base", "Return to Base", Category::Layer)
-                .secondary("Same physical position as Num / Symbol on Base"),
+                .hold_face("hold: Num")
+                .secondary("Release always returns to Base"),
             Self::NavEnter => PreviewAction::new("Enter", "Return / Enter", Category::Layer)
                 .hold("Momentary Nav / WM")
                 .hold_face("hold: Nav")
@@ -276,14 +272,10 @@ impl LayoutSpec {
         let base = self.layer(LayerId::Base)?;
         let nav = self.layer(LayerId::Nav)?;
         let num = self.layer(LayerId::Num)?;
-        ensure!(
-            matches!(base.keys[26], Action::NumberMode),
-            "P26 must own Num entry"
-        );
-        ensure!(
-            matches!(num.keys[26], Action::ReturnToBase),
-            "Num P26 must return to Base"
-        );
+        ensure!(matches!(base.keys[26], Action::None));
+        ensure!(matches!(num.keys[26], Action::None));
+        ensure!(matches!(base.keys[43], Action::BackspaceNum));
+        ensure!(matches!(num.keys[43], Action::BackspaceNum));
         ensure!(
             matches!(base.keys[41], Action::NavEnter),
             "P41 must own Nav entry"

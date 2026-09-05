@@ -100,26 +100,15 @@ pub fn preview_json(spec: &LayoutSpec) -> Result<String> {
         geometry: geometry(),
         layers,
         host_legends,
-        sequences: vec![
-            Sequence {
-                id: "leave-number-layer",
-                name: "Number-layer recovery",
-                description: "The same lower-left rail key that enters Num returns to Base when Num is latched.",
-                steps: vec![SequenceStep {
-                    key: "P26",
-                    label: "Num / Base",
-                }],
-            },
-            Sequence {
-                id: "nav-panic",
-                name: "Universal Base return",
-                description: "The intended invariant is that releasing Nav disables every non-Base layer.",
-                steps: vec![SequenceStep {
-                    key: "P41",
-                    label: "Hold Nav, then release",
-                }],
-            },
-        ],
+        sequences: vec![Sequence {
+            id: "nav-panic",
+            name: "Universal Base return",
+            description: "The intended invariant is that releasing Nav disables every non-Base layer.",
+            steps: vec![SequenceStep {
+                key: "P41",
+                label: "Hold Nav, then release",
+            }],
+        }],
         open_questions: spec.open_questions.clone(),
     };
     let mut json = serde_json::to_string_pretty(&payload)?;
@@ -145,14 +134,7 @@ pub fn zmk_keymap(spec: &LayoutSpec) -> Result<String> {
     chosen {\n\
         zmk,physical-layout = &dao_full_layout;\n\
     };\n\n\
-    behaviors {\n\
-        num_mode: num_mode {\n\
-            compatible = \"zmk,behavior-hold-tap\";\n\
-            #binding-cells = <2>;\n\
-            flavor = \"tap-preferred\";\n\
-            tapping-term-ms = <220>;\n\
-            bindings = <&mo>, <&tog>;\n\
-        };\n",
+    behaviors {\n",
     );
 
     for action in spec.guarded_actions() {
@@ -271,6 +253,14 @@ mod tests {
         let keymap = zmk_keymap(&dao44()).unwrap();
         assert!(keymap.contains("&lt { flavor = \"hold-preferred\"; tapping-term-ms = <220>; };"));
         assert!(keymap.contains("&lt NAV RET"));
+    }
+
+    #[test]
+    fn num_is_strictly_backspace_on_tap_and_layer_on_hold() {
+        let keymap = zmk_keymap(&dao44()).unwrap();
+        assert!(keymap.contains("&lt NUM BSPC"));
+        assert!(!keymap.contains("num_mode"));
+        assert!(!keymap.contains("<&tog>"));
     }
 
     #[test]
