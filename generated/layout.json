@@ -1166,10 +1166,9 @@
           "category": "unassigned"
         },
         "P12": {
-          "primary": "−",
-          "tap": "−",
-          "secondary": "With Shift: underscore",
-          "category": "symbol"
+          "primary": "—",
+          "tap": "Intentionally unassigned",
+          "category": "unassigned"
         },
         "P13": {
           "primary": "=",
@@ -1247,9 +1246,10 @@
           "category": "symbol"
         },
         "P25": {
-          "primary": "—",
-          "tap": "Intentionally unassigned",
-          "category": "unassigned"
+          "primary": "−",
+          "tap": "−",
+          "secondary": "With Shift: underscore",
+          "category": "symbol"
         },
         "P26": {
           "primary": "Base",

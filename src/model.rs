@@ -320,6 +320,8 @@ impl LayoutSpec {
                 ..
             }
         ));
+        ensure!(matches!(num.keys[25], Action::Key { code: "MINUS", .. }));
+        ensure!(matches!(num.keys[13], Action::Key { code: "EQUAL", .. }));
         ensure!(matches!(nav.keys[18], Action::Key { code: "LSHFT", .. }));
         ensure_unique_guard_ids(self)
     }

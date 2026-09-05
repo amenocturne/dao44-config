@@ -210,7 +210,6 @@ fn num() -> Layer {
 
     let mut keys = vec![Action::None; 44];
     keys[0] = Action::HyperEscape;
-    keys[12] = annotated_key("MINUS", "−", Symbol, "With Shift: underscore");
     keys[13] = annotated_key("EQUAL", "=", Symbol, "With Shift: plus");
     keys[14] = key("TAB", "Tab", Navigation);
     keys[15] = annotated_key("N1", "1", Symbol, "With Shift: !");
@@ -223,6 +222,7 @@ fn num() -> Layer {
     keys[22] = annotated_key("N8", "8", Symbol, "With Shift: *");
     keys[23] = annotated_key("N9", "9", Symbol, "With Shift: (");
     keys[24] = annotated_key("N0", "0", Symbol, "With Shift: )");
+    keys[25] = annotated_key("MINUS", "−", Symbol, "With Shift: underscore");
     keys[26] = Action::ReturnToBase;
     keys[27] = guarded(
         "Clear BT",

@@ -45,7 +45,7 @@ Tap Num for a run or hold it for one insertion.
 - Home row is `1 2 3 4 5 | 6 7 8 9 0`.
 - Tap 4 / hold left Shift and tap 7 / hold right Shift, preserving the same physical Shift positions as Base.
 - Real Shift+number produces symbols, including genuine Cmd+Shift+3 rather than a `#` macro.
-- Minus and equal share the top-right edge; Shift produces underscore and plus.
+- Minus follows `0` on the home row and equal sits on the adjacent outer-right key; Shift produces underscore and plus.
 - `P26` returns a latched Num layer to Base.
 - Left bottom recovery actions require the complete Hyper chord: clear current bond, clear all bonds, reset central/left, bootloader central/left.
 - Right bottom selects Bluetooth profiles 1–5 through the same Hyper gate. USB needs no mode key.
