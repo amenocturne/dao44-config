@@ -3,7 +3,8 @@ use std::{collections::BTreeMap, fmt::Write as _, fs, path::Path};
 use anyhow::{Context, Result};
 
 use crate::model::{
-    Geometry, LayoutSpec, PreviewHostLegend, PreviewLayer, PreviewPayload, Sequence, SequenceStep,
+    Geometry, LayoutSpec, PreviewHostLegend, PreviewLayer, PreviewPayload, SHIFT_TAPPING_TERM_MS,
+    Sequence, SequenceStep,
 };
 
 const RAW_GEOMETRY: [(i32, i32, i32, i32, i32, i32, i32); 44] = [
@@ -102,8 +103,8 @@ pub fn preview_json(spec: &LayoutSpec) -> Result<String> {
         host_legends,
         sequences: vec![Sequence {
             id: "nav-panic",
-            name: "Universal Base return",
-            description: "The intended invariant is that releasing Nav disables every non-Base layer.",
+            name: "Momentary navigation",
+            description: "Hold Enter for Nav / WM; releasing it returns to Base.",
             steps: vec![SequenceStep {
                 key: "P41",
                 label: "Hold Nav, then release",
@@ -136,6 +137,13 @@ pub fn zmk_keymap(spec: &LayoutSpec) -> Result<String> {
     };\n\n\
     behaviors {\n",
     );
+
+    output.push_str("        shift_tap: shift_tap {\n            compatible = \"zmk,behavior-hold-tap\";\n            #binding-cells = <2>;\n            flavor = \"tap-preferred\";\n");
+    writeln!(
+        output,
+        "            tapping-term-ms = <{SHIFT_TAPPING_TERM_MS}>;"
+    )?;
+    output.push_str("            bindings = <&kp>, <&kp>;\n        };\n");
 
     for action in spec.guarded_actions() {
         let id = action.id();
@@ -235,7 +243,7 @@ mod tests {
         let preview = preview_json(&spec).unwrap();
         let keymap = zmk_keymap(&spec).unwrap();
         assert!(preview.contains("\"primary\": \"4\""));
-        assert!(keymap.contains("&mt LSHFT N4"));
+        assert!(keymap.contains("&shift_tap LSHFT N4"));
         assert!(keymap.contains("zmk,physical-layout = &dao_full_layout"));
     }
 
@@ -261,6 +269,15 @@ mod tests {
         assert!(keymap.contains("&lt NUM BSPC"));
         assert!(!keymap.contains("num_mode"));
         assert!(!keymap.contains("<&tog>"));
+    }
+
+    #[test]
+    fn home_row_shifts_resolve_only_after_the_180_ms_threshold() {
+        let keymap = zmk_keymap(&dao44()).unwrap();
+        assert!(keymap.contains("shift_tap: shift_tap"));
+        assert!(keymap.contains("flavor = \"tap-preferred\""));
+        assert!(keymap.contains("tapping-term-ms = <180>"));
+        assert_eq!(keymap.matches("&shift_tap ").count(), 4);
     }
 
     #[test]

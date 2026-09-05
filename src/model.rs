@@ -4,6 +4,7 @@ use anyhow::{Result, bail, ensure};
 use serde::Serialize;
 
 pub const KEY_COUNT: usize = 44;
+pub const SHIFT_TAPPING_TERM_MS: u16 = 180;
 
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub enum LayerId {
@@ -165,7 +166,7 @@ impl Action {
             Self::ModTap {
                 modifier, tap_code, ..
             } => {
-                format!("&mt {} {tap_code}", modifier.zmk())
+                format!("&shift_tap {} {tap_code}", modifier.zmk())
             }
             Self::HyperEscape => "&mt LC(LA(LGUI)) ESC".into(),
             Self::BackspaceNum => "&lt NUM BSPC".into(),
@@ -199,6 +200,9 @@ impl Action {
                     .hold(modifier.label())
                     .hold_face("hold: Shift")
                     .secondary(secondary)
+                    .note(format!(
+                        "Tap wins until the {SHIFT_TAPPING_TERM_MS} ms threshold; other key presses do not force Shift."
+                    ))
             }
             Self::HyperEscape => PreviewAction::new("Esc", "Escape", Category::Modifier)
                 .hold("Hyper · Ctrl+Option+Command")

@@ -6,10 +6,10 @@ This document preserves the decisions behind the executable draft. Physical IDs 
 
 - Firmware emits raw ANSI/QWERTY-position HID codes. macOS alone interprets Colemak-DH or Russian.
 - Russian keeps the ordinary 44-key punctuation/letter positions; no firmware Colemak layer may distort it.
-- The physical index positions `P18` and `P21` own mirrored Shift holds across layers.
+- The physical index positions `P18` and `P21` own mirrored Shift holds across layers. Tap wins until 180 ms; another key press never forces Shift early.
 - Dual-role keys have no quick-tap exception: every press resolves only from its tap or hold intent.
 - Escape is rare but always present: tap `P00` for Escape, hold it for real Ctrl+Option+Command Hyper.
-- `P41` is always the Nav escape hatch. The intended invariant is that releasing Nav returns to Base even if Nav began from latched Num.
+- `P41` is the momentary Nav key; releasing it returns to Base.
 - Empty positions stay empty until actual use supplies evidence.
 
 ## Base
@@ -52,9 +52,8 @@ Hold Backspace/Num; releasing it always returns to Base. There is no persistent 
 
 ## Open hardware questions
 
-1. Tune tapping term, flavor, and hold triggers against real Colemak rolls.
+1. Tune the 180 ms home-row Shift threshold against real Colemak rolls without changing its pure timing rule.
 2. Test whether changing Bluetooth profiles while real HID Hyper is held can leak a stuck modifier. If so, keep the physical gesture but replace the gate with a silent firmware-only Admin layer.
-3. Implement and verify a Nav behavior whose release forces Base from every starting layer; ordinary `&lt` returns to its previous layer.
-4. Decide whether the MacBook behavior means literal F-keys with explicit system morphs or system actions by default with an F-key modifier. Some Apple actions do not have portable HID usages.
-5. Decide Caps Lock / both-Shifts behavior only after Russian usage is tested.
-6. Confirm which physical half is central before treating reset and bootloader labels as flash instructions.
+3. Decide whether the MacBook behavior means literal F-keys with explicit system morphs or system actions by default with an F-key modifier. Some Apple actions do not have portable HID usages.
+4. Decide Caps Lock / both-Shifts behavior only after Russian usage is tested.
+5. Confirm which physical half is central before treating reset and bootloader labels as flash instructions.

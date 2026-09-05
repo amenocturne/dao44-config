@@ -17,6 +17,13 @@ zmk,physical-layout = &dao_full_layout;
 };
 
 behaviors {
+        shift_tap: shift_tap {
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            flavor = "tap-preferred";
+            tapping-term-ms = <180>;
+            bindings = <&kp>, <&kp>;
+        };
 
         guard_clear_bt_gui: guard_clear_bt_gui {
             compatible = "zmk,behavior-mod-morph";
@@ -197,7 +204,7 @@ behaviors {
             display-name = "Base";
             bindings = <
                 &mt LC(LA(LGUI)) ESC          &kp GRAVE                     &kp Q                         &kp W                         &kp E                         &kp R                         &kp T                         &kp Y                         &kp U                         &kp I                         &kp O                         &kp P                         &kp LBKT                      &kp RBKT
-                &kp TAB                       &kp A                         &kp S                         &kp D                         &mt LSHFT F                   &kp G                         &kp H                         &mt RSHFT J                   &kp K                         &kp L                         &kp SEMI                      &kp SQT
+                &kp TAB                       &kp A                         &kp S                         &kp D                         &shift_tap LSHFT F            &kp G                         &kp H                         &shift_tap RSHFT J            &kp K                         &kp L                         &kp SEMI                      &kp SQT
                 &none                         &kp Z                         &kp X                         &kp C                         &kp V                         &kp B                         &kp N                         &kp M                         &kp COMMA                     &kp DOT                       &kp FSLH                      &kp BSLH
                 &kp LCTRL                     &kp LALT                      &kp LGUI                      &lt NAV RET                   &kp SPACE                     &lt NUM BSPC
             >;
@@ -217,7 +224,7 @@ behaviors {
             display-name = "Num / Symbol";
             bindings = <
                 &mt LC(LA(LGUI)) ESC          &none                         &none                         &none                         &none                         &none                         &none                         &none                         &none                         &none                         &none                         &none                         &none                         &kp EQUAL
-                &kp TAB                       &kp N1                        &kp N2                        &kp N3                        &mt LSHFT N4                  &kp N5                        &kp N6                        &mt RSHFT N7                  &kp N8                        &kp N9                        &kp N0                        &kp MINUS
+                &kp TAB                       &kp N1                        &kp N2                        &kp N3                        &shift_tap LSHFT N4           &kp N5                        &kp N6                        &shift_tap RSHFT N7           &kp N8                        &kp N9                        &kp N0                        &kp MINUS
                 &none                         &guard_clear_bt_ctl           &guard_clear_all_ctl          &guard_reset_ctl              &guard_bootloader_ctl         &none                         &guard_bt_1_ctl               &guard_bt_2_ctl               &guard_bt_3_ctl               &guard_bt_4_ctl               &guard_bt_5_ctl               &none
                 &kp LCTRL                     &kp LALT                      &kp LGUI                      &lt NAV RET                   &kp SPACE                     &lt NUM BSPC
             >;

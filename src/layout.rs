@@ -61,9 +61,8 @@ pub fn dao44() -> LayoutSpec {
         layers: vec![base(), nav(), num()],
         host_legends: vec![colemak(), russian()],
         open_questions: vec![
-            "Tune tapping-term and hold-trigger behavior on physical hardware without changing the layout model.",
+            "Tune the 180 ms home-row Shift threshold on physical hardware without changing its pure timing rule.",
             "Decide whether the Hyper-gated admin strip should become a silent firmware-only Admin layer before switching Bluetooth hosts.",
-            "Confirm whether Nav release requires a custom behavior to force Base when Nav was entered from latched Num.",
             "Confirm the desired MacBook-style system actions for F1–F12; generated firmware currently emits literal F-key codes.",
             "Leave unused Num bottom-row positions empty until real use reveals a need.",
         ],

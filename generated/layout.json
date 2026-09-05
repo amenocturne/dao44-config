@@ -681,7 +681,8 @@
           "hold": "Shift",
           "holdFace": "hold: Shift",
           "secondary": "Colemak-DH host interpretation: t",
-          "category": "modifier"
+          "category": "modifier",
+          "note": "Tap wins until the 180 ms threshold; other key presses do not force Shift."
         },
         "P19": {
           "primary": "g",
@@ -699,7 +700,8 @@
           "hold": "Shift",
           "holdFace": "hold: Shift",
           "secondary": "Colemak-DH host interpretation: n",
-          "category": "modifier"
+          "category": "modifier",
+          "note": "Tap wins until the 180 ms threshold; other key presses do not force Shift."
         },
         "P22": {
           "primary": "k",
@@ -1205,7 +1207,8 @@
           "hold": "Shift",
           "holdFace": "hold: Shift",
           "secondary": "With opposite Shift: $",
-          "category": "modifier"
+          "category": "modifier",
+          "note": "Tap wins until the 180 ms threshold; other key presses do not force Shift."
         },
         "P19": {
           "primary": "5",
@@ -1225,7 +1228,8 @@
           "hold": "Shift",
           "holdFace": "hold: Shift",
           "secondary": "With opposite Shift: &",
-          "category": "modifier"
+          "category": "modifier",
+          "note": "Tap wins until the 180 ms threshold; other key presses do not force Shift."
         },
         "P22": {
           "primary": "8",
@@ -1463,8 +1467,8 @@
   "sequences": [
     {
       "id": "nav-panic",
-      "name": "Universal Base return",
-      "description": "The intended invariant is that releasing Nav disables every non-Base layer.",
+      "name": "Momentary navigation",
+      "description": "Hold Enter for Nav / WM; releasing it returns to Base.",
       "steps": [
         {
           "key": "P41",
@@ -1474,9 +1478,8 @@
     }
   ],
   "openQuestions": [
-    "Tune tapping-term and hold-trigger behavior on physical hardware without changing the layout model.",
+    "Tune the 180 ms home-row Shift threshold on physical hardware without changing its pure timing rule.",
     "Decide whether the Hyper-gated admin strip should become a silent firmware-only Admin layer before switching Bluetooth hosts.",
-    "Confirm whether Nav release requires a custom behavior to force Base when Nav was entered from latched Num.",
     "Confirm the desired MacBook-style system actions for F1–F12; generated firmware currently emits literal F-key codes.",
     "Leave unused Num bottom-row positions empty until real use reveals a need."
   ]
