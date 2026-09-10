@@ -81,12 +81,34 @@ _firmware-setup:
 [private]
 _firmware: _generate
     test -d .west || { echo 'Run `just firmware setup` once first.' >&2; exit 1; }
-    tmp/zmk-venv/bin/west build -s zmk/app -d build/left -b dao_left -- -DZMK_CONFIG={{justfile_directory()}}/config
-    tmp/zmk-venv/bin/west build -s zmk/app -d build/right -b dao_right -- -DZMK_CONFIG={{justfile_directory()}}/config
+    tmp/zmk-venv/bin/west build -s zmk/app -d build/left -b dao_left -- -DZMK_CONFIG={{justfile_directory()}}/config -DKEYMAP_FILE={{justfile_directory()}}/config/dao.keymap
+    tmp/zmk-venv/bin/west build -s zmk/app -d build/right -b dao_right -- -DZMK_CONFIG={{justfile_directory()}}/config -DKEYMAP_FILE={{justfile_directory()}}/config/dao.keymap
 
 [private]
 _firmware-half half: _generate
-    @half={{quote(half)}}; if [[ "$half" != "left" && "$half" != "right" ]]; then echo "unknown keyboard half: $half" >&2; exit 1; fi; test -d .west || { echo 'Run `just firmware setup` once first.' >&2; exit 1; }; tmp/zmk-venv/bin/west build -s zmk/app -d "build/$half" -b "dao_$half" -- -DZMK_CONFIG={{justfile_directory()}}/config
+    @half={{quote(half)}}; if [[ "$half" != "left" && "$half" != "right" ]]; then echo "unknown keyboard half: $half" >&2; exit 1; fi; test -d .west || { echo 'Run `just firmware setup` once first.' >&2; exit 1; }; tmp/zmk-venv/bin/west build -s zmk/app -d "build/$half" -b "dao_$half" -- -DZMK_CONFIG={{justfile_directory()}}/config -DKEYMAP_FILE={{justfile_directory()}}/config/dao.keymap
+
+# Build and flash temporary firmware that gives every switch a unique ASCII character
+switch-test target="":
+    @if [[ -n "${IN_NIX_SHELL:-}" ]]; then just _switch-test {{quote(target)}}; else nix develop --command just _switch-test {{quote(target)}}; fi
+
+[private]
+_switch-test target:
+    @target={{quote(target)}}; if [[ -z "$target" || "$target" == "help" || "$target" == "--help" ]]; then just _switch-test-help; elif [[ "$target" == "left" ]]; then just _switch-test-build; cargo run --quiet -- flash-switch-test; else echo "unknown switch-test target: $target" >&2; just _switch-test-help >&2; exit 2; fi
+
+[private]
+_switch-test-build:
+    cargo run --quiet -- generate-switch-test
+    test -d .west || { echo 'Run `just firmware setup` once first.' >&2; exit 1; }
+    tmp/zmk-venv/bin/west build -s zmk/app -d build/switch-test-left -b dao_left -- -DZMK_CONFIG={{justfile_directory()}}/config -DKEYMAP_FILE={{justfile_directory()}}/tmp/switch-test.keymap
+
+[private]
+_switch-test-help:
+    @echo 'Usage: just switch-test left'
+    @echo
+    @echo 'Build and flash a temporary left-half keymap for testing all 44 switches.'
+    @echo 'With macOS set to Colemak-DH ANSI, positions 0..43 emit ASCII 44..87.'
+    @echo 'Run `just flash left` afterward to restore the normal layout.'
 
 # Flash one half, all connected halves, or inspect the mapping; omit TARGET for help
 flash target="":

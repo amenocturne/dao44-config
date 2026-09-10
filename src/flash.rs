@@ -109,6 +109,21 @@ pub fn print_help() {
 }
 
 pub fn flash_half(root: &Path, half: Half) -> Result<()> {
+    let firmware = root.join("build").join(half.label()).join("zephyr/zmk.uf2");
+    flash_half_firmware(root, half, firmware)
+}
+
+pub fn flash_switch_test(root: &Path) -> Result<()> {
+    let firmware = root.join("build/switch-test-left/zephyr/zmk.uf2");
+    flash_half_firmware(root, Half::Left, firmware)
+}
+
+fn flash_half_firmware(root: &Path, half: Half, firmware: PathBuf) -> Result<()> {
+    ensure!(
+        firmware.is_file(),
+        "firmware is missing at {}",
+        firmware.display()
+    );
     let volumes = discover_bootloaders()?;
     ensure!(
         !volumes.is_empty(),
@@ -120,17 +135,23 @@ pub fn flash_half(root: &Path, half: Half) -> Result<()> {
     let config = FlashConfig::from_env(&existing)?;
     let volume = select_half_volume(&config, half, volumes)?;
 
-    let config = if config.serial_for_half(half).is_none() {
+    if config.serial_for_half(half).is_none() {
         let updated = upsert_env(&existing, half.env_key(), &volume.serial)?;
         fs::write(&env_path, &updated)
             .with_context(|| format!("failed to update {}", env_path.display()))?;
         println!("remembered {} half ({})", half.label(), volume.serial);
-        FlashConfig::from_env(&updated)?
-    } else {
-        config
-    };
+        FlashConfig::from_env(&updated)?;
+    }
 
-    execute_flashes(plan_flashes(root, &config, vec![volume])?, false)
+    execute_flashes(
+        vec![FlashPlan {
+            half,
+            serial: volume.serial,
+            mount: volume.mount,
+            firmware,
+        }],
+        false,
+    )
 }
 
 pub fn flash_registered(root: &Path, dry_run: bool) -> Result<()> {

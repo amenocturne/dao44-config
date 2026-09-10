@@ -2,6 +2,7 @@ mod flash;
 mod generate;
 mod layout;
 mod model;
+mod switch_test;
 
 use std::path::{Path, PathBuf};
 
@@ -15,6 +16,20 @@ fn main() -> Result<()> {
 
     match command.as_str() {
         "generate" => generate::write_all(&root, &spec),
+        "generate-switch-test" => {
+            ensure!(
+                args.next().is_none(),
+                "generate-switch-test accepts no arguments"
+            );
+            switch_test::write_keymap(&root)
+        }
+        "flash-switch-test" => {
+            ensure!(
+                args.next().is_none(),
+                "flash-switch-test accepts no arguments"
+            );
+            flash::flash_switch_test(&root)
+        }
         "check" => {
             spec.validate()?;
             check_generated(&root, &spec)
@@ -34,7 +49,9 @@ fn main() -> Result<()> {
                 Some(other) => bail!("unknown flash target {other:?}\n\n{}", flash::HELP),
             }
         }
-        other => bail!("unknown command {other:?}; expected generate, check, or flash"),
+        other => bail!(
+            "unknown command {other:?}; expected generate, generate-switch-test, check, flash-switch-test, or flash"
+        ),
     }
 }
 

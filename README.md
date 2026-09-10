@@ -20,6 +20,8 @@ It deliberately does not bake Colemak-DH into firmware. The keyboard emits ANSI 
 
 **Fast local path** — Rust generation is incremental and small. A Nix shell pins the app and native ZMK build dependencies; left and right firmware use separate build caches.
 
+**Traceable switch diagnosis** — temporary firmware maps all 44 switches to consecutive printable ASCII characters, making chatter and dropped presses attributable to an exact physical position.
+
 ## Quick start
 
 ```sh
@@ -51,6 +53,6 @@ The manifest pins the final ZMK revision before its Zephyr 4.1 migration. The up
 
 ## Current boundary
 
-The generated layout is an executable draft. Literal F1–F12, typed workspace chords, number mode, and Hyper-gated recovery actions are represented in ZMK. Two behaviors remain intentionally visible as design work before flashing: forcing Base specifically on Nav release from latched Num, and the exact firmware-native equivalents of every MacBook system key.
+The generated layout is an executable draft. Literal F1–F12, typed workspace chords, number mode, and Hyper-gated recovery actions are represented in ZMK. The exact firmware-native equivalents of every MacBook system key remain intentionally visible as design work.
 
-See [the layout contract](docs/layout.md) for settled behavior and open questions, and [the architecture](docs/architecture.md) for ownership and generation flow.
+See [the layout contract](docs/layout.md) for settled behavior and open questions, [switch testing](docs/switch-testing.md) for the diagnostic protocol, and [the architecture](docs/architecture.md) for ownership and generation flow.
