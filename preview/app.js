@@ -1,8 +1,19 @@
+const firstDiagnosticAscii = 44;
+const switchTestMode = location.pathname === "/switch-test";
+const switchFindings = new Map(
+  (new URLSearchParams(location.search).get("bad") ?? "")
+    .split(",")
+    .map((value) => value.trim())
+    .filter((value) => value.length === 1)
+    .map((value) => [`P${String(value.codePointAt(0) - firstDiagnosticAscii).padStart(2, "0")}`, value])
+    .filter(([position]) => /^P(?:[0-3][0-9]|4[0-3])$/.test(position)),
+);
+
 const state = {
   payload: null,
   layerId: "base",
-  hostId: "none",
-  selectedId: "P00",
+  hostId: switchTestMode ? "colemak-dh-ansi" : "none",
+  selectedId: switchFindings.keys().next().value ?? "P00",
 };
 
 const elements = {
@@ -31,12 +42,33 @@ function labelFor(keyId, action) {
   return state.layerId === "base" ? (activeHost()?.keys[keyId] ?? action.primary) : action.primary;
 }
 
+function diagnosticFor(keyId) {
+  return String.fromCodePoint(firstDiagnosticAscii + Number(keyId.slice(1)));
+}
+
 function showDetail(keyId) {
   const layer = activeLayer();
   const action = layer.keys[keyId];
   const geometry = state.payload.geometry.find((key) => key.id === keyId);
   const hostLabel = state.layerId === "base" ? activeHost()?.keys[keyId] : null;
   state.selectedId = keyId;
+  if (switchTestMode) {
+    const diagnostic = diagnosticFor(keyId);
+    const failed = switchFindings.has(keyId);
+    document.querySelector("#detail-primary").textContent = `${diagnostic} → ${hostLabel ?? action.primary}`;
+    document.querySelector("#detail-position").textContent = `${keyId} · ${geometry.hand} ${geometry.region}`;
+    document.querySelector("#detail-tap").textContent =
+      `Diagnostic ${diagnostic} · ASCII ${diagnostic.codePointAt(0)}`;
+    document.querySelector("#detail-hold").textContent = failed ? "Replace switch" : "Passed";
+    document.querySelector("#detail-secondary").textContent = `Daily layout: ${hostLabel ?? action.primary}`;
+    document.querySelector("#detail-note").textContent = failed
+      ? `${diagnostic.codePointAt(0)} − 44 = physical position ${Number(keyId.slice(1))}`
+      : "No chatter or dropped presses observed";
+    elements.keys.querySelectorAll(".key-node").forEach((node) => {
+      node.classList.toggle("selected", node.dataset.keyId === keyId);
+    });
+    return;
+  }
   document.querySelector("#detail-primary").textContent = hostLabel ?? action.primary;
   document.querySelector("#detail-position").textContent = `${keyId} · ${geometry.hand} ${geometry.region}`;
   document.querySelector("#detail-tap").textContent = hostLabel
@@ -58,6 +90,9 @@ function renderKeys() {
     const label = labelFor(geometry.id, action);
     const group = document.createElementNS(svgNamespace, "g");
     group.classList.add("key-node", `category-${action.category}`);
+    if (switchTestMode) {
+      group.classList.add(switchFindings.has(geometry.id) ? "switch-failed" : "switch-clear");
+    }
     group.dataset.keyId = geometry.id;
     if (geometry.rot) {
       group.setAttribute("transform", `rotate(${geometry.rot} ${geometry.rx} ${geometry.ry})`);
@@ -76,10 +111,10 @@ function renderKeys() {
     );
     const primary = document.createElement("span");
     primary.className = "key-primary";
-    primary.textContent = label;
+    primary.textContent = switchTestMode ? diagnosticFor(geometry.id) : label;
     const hold = document.createElement("span");
     hold.className = "key-hold";
-    hold.textContent = action.holdFace ?? "";
+    hold.textContent = switchTestMode ? `${geometry.id} · ${label}` : (action.holdFace ?? "");
     button.append(primary, hold);
     for (const event of ["mouseenter", "focus", "click"]) {
       button.addEventListener(event, () => showDetail(geometry.id));
@@ -147,9 +182,18 @@ function renderSupportingInfo() {
 
 function render() {
   const layer = activeLayer();
-  elements.title.textContent = state.payload.title;
-  elements.revision.textContent = state.payload.revision;
-  elements.layerDescription.textContent = layer.description;
+  if (switchTestMode) {
+    document.body.dataset.view = "switch-test";
+    elements.title.textContent = "Dao44 · switches to replace";
+    elements.revision.textContent = `${switchFindings.size} suspects`;
+    elements.layerDescription.textContent = [...switchFindings]
+      .map(([position, diagnostic]) => `${diagnostic} → ${position}`)
+      .join(" · ");
+  } else {
+    elements.title.textContent = state.payload.title;
+    elements.revision.textContent = state.payload.revision;
+    elements.layerDescription.textContent = layer.description;
+  }
   renderLayers();
   renderHosts();
   renderKeys();

@@ -176,6 +176,7 @@ h1 {
 .key-node.selected .key {
   box-shadow: 0 0 0 4px white;
 }
+
 .key-primary {
   font-size: 21px;
   font-weight: 760;
@@ -370,4 +371,38 @@ body[data-error="true"] .page-header {
   .lower-grid {
     grid-template-columns: 1fr;
   }
+}
+
+body[data-view="switch-test"] #layer-tabs,
+body[data-view="switch-test"] #host-controls,
+body[data-view="switch-test"] .legend,
+body[data-view="switch-test"] .lower-grid {
+  display: none;
+}
+
+body[data-view="switch-test"] .keyboard-panel {
+  margin-top: 28px;
+}
+
+.key-node.switch-clear .key {
+  opacity: 0.3;
+  filter: saturate(0.25);
+}
+
+.key-node.switch-failed {
+  --key-color: var(--danger);
+}
+
+.key-node.switch-failed .key {
+  box-shadow:
+    0 0 0 3px color-mix(in srgb, var(--danger) 65%, transparent),
+    0 0 30px color-mix(in srgb, var(--danger) 35%, transparent);
+}
+
+.key-node.switch-failed .key-primary {
+  font-size: 30px;
+}
+
+.key-node.switch-failed .key-hold {
+  font-size: 10px;
 }

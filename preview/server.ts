@@ -70,6 +70,7 @@ watch(join(root, "Cargo.toml"), () => schedule("generate"));
 
 const files = new Map([
   ["/", "preview/index.html"],
+  ["/switch-test", "preview/index.html"],
   ["/app.js", "preview/app.js"],
   ["/styles.css", "preview/styles.css"],
   ["/layout.json", "generated/layout.json"],

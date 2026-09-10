@@ -10,4 +10,6 @@ Keep macOS on the Colemak-DH ANSI input source while testing. Physical position 
 
 To test chatter, press one switch 20 times, press Enter on the MacBook keyboard, and continue with the next switch. A healthy line contains exactly 20 copies of its expected character. Extra copies identify chatter; missing copies identify dropped presses. Because the character's ASCII value minus 44 is its physical index, the output remains traceable without preserving a separate legend beside the test.
 
+While `just run` is active, open `/switch-test?bad=G,J,K,T` to highlight a set of failed diagnostic characters on the existing Dao geometry. Change the comma-separated `bad` value after each test round; the page derives `P00` through `P43` from the characters automatically.
+
 The diagnostic firmware deliberately has no Enter, modifiers, layers, Bluetooth controls, or firmware escape key. Double-tap the left half's physical reset and run `just flash left` to restore the normal layout.
